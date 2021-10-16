@@ -12,6 +12,8 @@ namespace Project.Core
         private int MaxSpeed;
         private IInputGiver Input;
 
+        private Vector2 direction;
+
         protected override void Awake()
         {
             base.Awake();
@@ -26,6 +28,9 @@ namespace Project.Core
         {
             transform.Rotate(new Vector3(0, 0, -Input.Rotation * SO.RotationSpeed));
 
+            if (Input.Acceleration)
+                direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
+
             MaxSpeed = Input.Acceleration ? SO.MaxSpeed : SO.Speed;
 
             //if (Input.Fire)
@@ -34,8 +39,8 @@ namespace Project.Core
 
         protected override void FixedUpdate()
         {
-            if (rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < MaxSpeed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z));
+            if (Input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < MaxSpeed)
+                rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
         }
     }
 }
