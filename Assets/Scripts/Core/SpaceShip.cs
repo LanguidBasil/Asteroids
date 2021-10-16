@@ -8,7 +8,7 @@ namespace Project.Core
     public class SpaceShip : DestroyableObject
     {
         [SerializeField]
-        private Gun MyGun;
+        private Gun myGun;
 
         private IInputGiver input;
 
@@ -31,8 +31,8 @@ namespace Project.Core
             if (input.Acceleration)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
 
-            //if (Input.Fire)
-            //    Gun.Fire();
+            if (input.Fire)
+                myGun.Fire();
         }
 
         protected override void FixedUpdate()

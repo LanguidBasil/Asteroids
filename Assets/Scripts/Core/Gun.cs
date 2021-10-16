@@ -12,6 +12,7 @@ namespace Project.Core
         [SerializeField]
         private int maxBullets;
         [SerializeField]
+        [Tooltip("In seconds")]
         private float reloadTime;
 
         public Action OnFire;

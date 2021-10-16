@@ -22,8 +22,10 @@ namespace Project.Tools
         public GameObject Get()
         {
             for (int i = 0; i < maxSize; i++)
-                if (pool[i].activeInHierarchy)
+                if (!pool[i].activeInHierarchy)
                     return pool[i];
+
+            Debug.LogWarning($"No available objects in GameObjectPool");
             return null;
         }
     }

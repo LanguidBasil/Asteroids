@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 7972412817711538844}
   - component: {fileID: 7972412817711538833}
   - component: {fileID: 7972412817711538834}
+  - component: {fileID: 700462519}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -246,4 +247,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 989a0aa8bc1642842a933cb0a3933d35, type: 2}
-  MyGun: {fileID: 0}
+  myGun: {fileID: 700462519}
+--- !u!114 &700462519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972412817711538845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80054d29ecea84baadad534900cca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 619730769680535048, guid: b1ae04358837a9449a6d898708a8f796, type: 3}
+  maxBullets: 5
+  reloadTime: 1
