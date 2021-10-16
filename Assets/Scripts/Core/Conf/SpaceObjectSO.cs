@@ -8,7 +8,7 @@ namespace Project.Core.Conf
         [Header("Space Objects")]
         public int Speed;
         public int Damage;
-        //public eOnExitCameraBounds OnExitCameraBounds
+        public OnExitCameraBounds eOnExitCameraBounds;
 
         [Header("Destroyable Objects")]
         public int StartingHealth;

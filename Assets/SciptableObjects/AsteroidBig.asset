@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 25
   Damage: 1
+  eOnExitCameraBounds: 20
   StartingHealth: 1
   XP: 20
   MaxSpeed: 0
