@@ -7,8 +7,7 @@ namespace Project.Core
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class SpaceObject : MonoBehaviour
     {
-        [SerializeField]
-        protected SpaceObjectSO SO;
+        public SpaceObjectSO SO;
 
         protected Rigidbody2D rb2d;
 

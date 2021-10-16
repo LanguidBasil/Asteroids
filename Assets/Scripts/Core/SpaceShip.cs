@@ -7,9 +7,10 @@ namespace Project.Core
 {
     public class SpaceShip : DestroyableObject
     {
-        //public Gun MyGun;
+        [SerializeField]
+        private Gun MyGun;
 
-        private IInputGiver Input;
+        private IInputGiver input;
 
         private Vector2 direction;
 
@@ -17,17 +18,17 @@ namespace Project.Core
         {
             base.Awake();
 
-            Input = GetComponentInChildren<IInputGiver>();
+            input = GetComponentInChildren<IInputGiver>();
 
-            if (Input == null)
+            if (input == null)
                 Debug.LogError($"{gameObject.name} can't find IInputGiver in Children");
         }
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -Input.Rotation * SO.RotationSpeed));
+            transform.Rotate(new Vector3(0, 0, -input.Rotation * SO.RotationSpeed));
 
-            if (Input.Acceleration)
+            if (input.Acceleration)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
 
             //if (Input.Fire)
@@ -36,7 +37,7 @@ namespace Project.Core
 
         protected override void FixedUpdate()
         {
-            if (Input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
+            if (input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
                 rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
         }
     }

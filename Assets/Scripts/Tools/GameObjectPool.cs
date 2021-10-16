@@ -5,7 +5,7 @@ namespace Project.Tools
     public class GameObjectPool
     {
         private readonly int maxSize;
-        private GameObject[] pool;
+        private readonly GameObject[] pool;
 
         public GameObjectPool(int maxSize, GameObject prototype)
         {
