@@ -9,7 +9,6 @@ namespace Project.Core
     {
         //public Gun MyGun;
 
-        private int MaxSpeed;
         private IInputGiver Input;
 
         private Vector2 direction;
@@ -31,15 +30,13 @@ namespace Project.Core
             if (Input.Acceleration)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
 
-            MaxSpeed = Input.Acceleration ? SO.MaxSpeed : SO.Speed;
-
             //if (Input.Fire)
             //    Gun.Fire();
         }
 
         protected override void FixedUpdate()
         {
-            if (Input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < MaxSpeed)
+            if (Input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
                 rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
         }
     }
