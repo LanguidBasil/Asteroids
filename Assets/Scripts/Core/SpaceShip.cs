@@ -3,7 +3,7 @@ using UnityEngine;
 using Project.Input;
 using Project.Tools;
 
-namespace Project.Core
+namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
