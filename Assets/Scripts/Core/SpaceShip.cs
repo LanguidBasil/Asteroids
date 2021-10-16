@@ -35,7 +35,7 @@ namespace Project.Core
         protected override void FixedUpdate()
         {
             if (rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < MaxSpeed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Trigonometry.RotationToVector2(transform.rotation.eulerAngles.z));
+                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z));
         }
     }
 }
