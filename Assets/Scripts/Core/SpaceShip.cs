@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using Project.Input;
+using Project.Tools;
 
 namespace Project.Core
 {
@@ -23,7 +24,7 @@ namespace Project.Core
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, Input.Rotation * SO.RotationSpeed));
+            transform.Rotate(new Vector3(0, 0, -Input.Rotation * SO.RotationSpeed));
 
             MaxSpeed = Input.Acceleration ? SO.MaxSpeed : SO.Speed;
 
@@ -34,7 +35,7 @@ namespace Project.Core
         protected override void FixedUpdate()
         {
             if (rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < MaxSpeed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Vector2.up);
+                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Trigonometry.RotationToVector2(transform.rotation.eulerAngles.z));
         }
     }
 }

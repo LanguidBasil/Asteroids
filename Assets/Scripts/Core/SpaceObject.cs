@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using Project.Tools;
+
 namespace Project.Core
 {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -18,7 +20,7 @@ namespace Project.Core
         protected virtual void FixedUpdate()
         {
             if (rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.Speed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Vector2.up);
+                rb2d.AddForce(SO.Speed * Time.deltaTime * 100 * Trigonometry.RotationToVector2(transform.rotation.eulerAngles.z));
         }
     }
 }
