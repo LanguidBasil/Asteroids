@@ -8,10 +8,13 @@ namespace Project.Core
         [Header("Space Objects")]
         public int Speed;
         public int Damage;
+        //public eOnExitCameraBounds OnExitCameraBounds
 
         [Header("Destroyable Objects")]
         public int StartingHealth;
         public int XP;
+        //public eActionOnDeath ActionOnDeath;
+        //public SplitContext SplitContext;
 
         [Header("SpaceShip Objects")]
         public int MaxSpeed;
