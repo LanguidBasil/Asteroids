@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Project.Core.Objects
 {
@@ -9,8 +10,18 @@ namespace Project.Core.Objects
         public event EventHandler OnHealthDecrease;
         public event EventHandler<DeathArgs> OnDestroy;
 
+        private float invincibilityTimer;
+
+        protected virtual void Start()
+        {
+            invincibilityTimer = Time.time + SO.InvincibiltyTime;
+        }
+
         public void DecreaseHealth(int amount)
         {
+            if (Time.time < invincibilityTimer)
+                return;
+
             Health -= amount;
             OnHealthDecrease?.Invoke(this, null);
 

@@ -125,6 +125,7 @@ MonoBehaviour:
   bigAsteroidSpawner: {fileID: 0}
   mediumAsteroidSpawner: {fileID: 0}
   smallAsteroidSpawner: {fileID: 0}
+  playerSpawner: {fileID: 0}
   asteroidsAtStart: 2
 --- !u!1 &6588074736633478582
 GameObject:

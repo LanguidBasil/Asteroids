@@ -34,7 +34,7 @@ namespace Project.Core.Objects
         {
             if (collision.gameObject.name == SO.SceneInfo.CameraBoundsGameObjectName)
             {
-                switch (SO.eOnExitCameraBounds)
+                switch (SO.OnExitCameraBounds)
                 {
                     case ActionOnExitCameraBounds.Disable:
                         gameObject.SetActive(false);

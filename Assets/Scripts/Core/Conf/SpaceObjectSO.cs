@@ -9,9 +9,11 @@ namespace Project.Core.Conf
         public SceneInfoSO SceneInfo;
         public int Speed;
         public int DamageOnCollide;
-        public ActionOnExitCameraBounds eOnExitCameraBounds;
+        public ActionOnExitCameraBounds OnExitCameraBounds;
 
         [Header("Destroyable Objects")]
+        [Tooltip("In seconds")]
+        public float InvincibiltyTime;
         public int StartingHealth;
         public int XP;
 

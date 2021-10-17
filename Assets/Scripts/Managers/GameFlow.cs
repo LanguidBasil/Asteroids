@@ -21,6 +21,8 @@ namespace Project.Managers
         private Spawner mediumAsteroidSpawner;
         [SerializeField]
         private Spawner smallAsteroidSpawner;
+        [SerializeField]
+        private Spawner playerSpawner;
         [Space(8)]
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
@@ -38,6 +40,7 @@ namespace Project.Managers
             }
         }
 
+        // Remove when UI will appear
         private void Start()
         {
             GameStart();
@@ -46,6 +49,9 @@ namespace Project.Managers
         public void GameStart()
         {
             GameActive = true;
+
+            playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
+
             for (int i = 0; i < asteroidsAtStart; i++)
             {
                 (Vector3, Quaternion) pos = RandomOffCameraPosition();
