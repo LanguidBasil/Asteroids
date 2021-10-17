@@ -23,9 +23,19 @@ namespace Project.Managers
 
         public bool GameActive { get; private set; }
 
+        private void Start()
+        {
+            GameStart();
+        }
+
         public void GameStart()
         {
-
+            GameActive = true;
+            for (int i = 0; i < asteroidsAtStart; i++)
+            {
+                (Vector3, Quaternion) pos = RandomOffCameraPosition();
+                BigAsteroidSpawner.Spawn(pos.Item1, pos.Item2);
+            }
         }
 
         public void GameContinue()
@@ -56,9 +66,27 @@ namespace Project.Managers
             }
         }
 
-        private Vector3 RandomOffCameraPosition()
+        private (Vector3, Quaternion) RandomOffCameraPosition()
         {
-            return default;
+            Vector2 cameraExtents = sceneInfo.CameraBoundsExtents;
+            int angle = Random.Range(-45, 45);
+            switch (Random.Range(0, 3))
+            {
+                // right
+                case 0:
+                    return (new Vector3(cameraExtents.x, Random.Range(-cameraExtents.y, cameraExtents.y)), Quaternion.Euler(0, 0, angle + 90));
+                // up
+                case 1:
+                    return (new Vector3(Random.Range(-cameraExtents.x, cameraExtents.x), cameraExtents.y), Quaternion.Euler(0, 0, angle + 180));
+                // left
+                case 2:
+                    return (new Vector3(-cameraExtents.x, Random.Range(-cameraExtents.y, cameraExtents.y)), Quaternion.Euler(0, 0, angle + 270));
+                // down
+                case 3:
+                    return (new Vector3(Random.Range(-cameraExtents.x, cameraExtents.x), -cameraExtents.y), Quaternion.Euler(0, 0, angle));
+                default:
+                    return default;
+            }
         }
     }
 }

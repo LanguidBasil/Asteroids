@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 989a0aa8bc1642842a933cb0a3933d35, type: 2}
-  myGun: {fileID: 0}
+  myGun: {fileID: 602586239}
 --- !u!114 &602586239
 MonoBehaviour:
   m_ObjectHideFlags: 0
