@@ -34,8 +34,7 @@ namespace Project.Core.Objects
                 GameObject bullet = bullets.Get();
                 if (bullet != null)
                 {
-                    bullet.transform.position = transform.position;
-                    bullet.transform.rotation = transform.rotation;
+                    bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
                     bullet.SetActive(true);
                     OnFire?.Invoke();
                 }

@@ -8,7 +8,7 @@ namespace Project.Core.Conf
         [Header("Space Objects")]
         public SceneInfoSO SceneInfo;
         public int Speed;
-        public int Damage;
+        public int DamageOnCollide;
         public OnExitCameraBounds eOnExitCameraBounds;
 
         [Header("Destroyable Objects")]

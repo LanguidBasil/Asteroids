@@ -23,7 +23,14 @@ namespace Project.Core.Objects
                 rb2d.AddForce(SO.Speed * Time.deltaTime * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z));
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        protected void OnCollisionEnter2D(Collision2D collision)
+        {
+            DestroyableObject desObj = collision.gameObject.GetComponent<DestroyableObject>();
+            if (desObj != null)
+                desObj.DecreaseHealth(SO.DamageOnCollide);
+        }
+
+        protected void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.gameObject.name == SO.SceneInfo.CameraBoundsGameObjectName)
             {
