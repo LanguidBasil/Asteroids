@@ -4,8 +4,8 @@ using Project.Core.ObjectTypes;
 
 namespace Project.Core.Conf
 {
-    [CreateAssetMenu(fileName = "New Split Info", menuName = "Project / Core / Split Info")]
-    public class SplitInfoSO : ScriptableObject
+    [CreateAssetMenu(fileName = "New Asteroid Split Info", menuName = "Project / Core / Asteroid Split Info")]
+    public class AsteroidSplitInfoSO : ScriptableObject
     {
         public AsteroidType AsteroidToSpawn;
         public int AsteroidsNumber;
