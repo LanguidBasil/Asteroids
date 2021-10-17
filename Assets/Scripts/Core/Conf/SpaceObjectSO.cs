@@ -15,7 +15,7 @@ namespace Project.Core.Conf
         public int StartingHealth;
         public int XP;
         public ActionOnDeath OnDeath;
-        public SplitSO Split;
+        public SplitInfoSO Split;
 
         [Header("SpaceShip Objects")]
         public int MaxSpeed;
