@@ -10,6 +10,8 @@ namespace Project.Managers
     {
         [SerializeField]
         private DeathGatherer deathGatherer;
+        [SerializeField]
+        private Scorer scorer;
         [Space(8)]
         [SerializeField]
         private SceneInfoSO sceneInfo;
@@ -19,6 +21,8 @@ namespace Project.Managers
         private Spawner mediumAsteroidSpawner;
         [SerializeField]
         private Spawner smallAsteroidSpawner;
+        [SerializeField]
+        private ControllerSpawner playerSpawner;
         [Space(8)]
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
@@ -33,9 +37,11 @@ namespace Project.Managers
                 bigAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
                 mediumAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
                 smallAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
+                playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
             }
         }
 
+        // Remove when UI will appear
         private void Start()
         {
             GameStart();
@@ -44,6 +50,9 @@ namespace Project.Managers
         public void GameStart()
         {
             GameActive = true;
+
+            playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
+
             for (int i = 0; i < asteroidsAtStart; i++)
             {
                 (Vector3, Quaternion) pos = RandomOffCameraPosition();
@@ -53,12 +62,17 @@ namespace Project.Managers
 
         public void GameContinue()
         {
-
+            Time.timeScale = 1;
         }
 
         public void GamePause()
         {
+            Time.timeScale = 0;
+        }
 
+        public void CreatePlayer(Vector3 position, Quaternion rotation)
+        {
+            playerSpawner.Spawn(position, rotation);
         }
 
         public void CreateAsteroid(AsteroidType asteroid, Vector3 position, Quaternion rotation)

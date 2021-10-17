@@ -15,16 +15,6 @@ namespace Project.Core.Objects
 
         private Vector2 direction;
 
-        protected override void Awake()
-        {
-            base.Awake();
-
-            input = GetComponentInChildren<IInputGiver>();
-
-            if (input == null)
-                Debug.LogError($"{gameObject.name} can't find IInputGiver in Children");
-        }
-
         protected virtual void Update()
         {
             transform.Rotate(new Vector3(0, 0, -input.Rotation * SO.RotationSpeed));
@@ -40,6 +30,11 @@ namespace Project.Core.Objects
         {
             if (input.Acceleration && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
                 rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
+        }
+        
+        public void SetInput(IInputGiver input)
+        {
+            this.input = input;
         }
     }
 }

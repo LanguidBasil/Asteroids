@@ -15,7 +15,8 @@ MonoBehaviour:
   SceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
   Speed: 300
   DamageOnCollide: 1
-  eOnExitCameraBounds: 10
+  OnExitCameraBounds: 10
+  InvincibiltyTime: 0
   StartingHealth: 1
   XP: 0
   MaxSpeed: 0
