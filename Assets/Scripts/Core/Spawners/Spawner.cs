@@ -25,7 +25,7 @@ namespace Project.Core.Spawners
         /// <returns>
         /// returns true if spawn succeded and false otherwise
         /// </returns>
-        public bool Spawn(Vector3 position, Quaternion rotation)
+        public virtual bool Spawn(Vector3 position, Quaternion rotation)
         {
             GameObject gameObj = pool.Get();
             if (gameObj != null)

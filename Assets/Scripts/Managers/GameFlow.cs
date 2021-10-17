@@ -22,7 +22,7 @@ namespace Project.Managers
         [SerializeField]
         private Spawner smallAsteroidSpawner;
         [SerializeField]
-        private Spawner playerSpawner;
+        private ControllerSpawner playerSpawner;
         [Space(8)]
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
