@@ -414,6 +414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1341473807}
+  - {fileID: 1605172390}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -460,7 +461,7 @@ GameObject:
   - component: {fileID: 1341473807}
   - component: {fileID: 1341473808}
   m_Layer: 0
-  m_Name: GameFlow
+  m_Name: Game Flow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,10 +493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ec825bf2e119148ad047b5ac4421d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathGatherer: {fileID: 1605172391}
   sceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
-  BigAsteroidSpawner: {fileID: 1443145699}
-  MediumAsteroidSpawner: {fileID: 376305817}
-  SmallAsteroidSpawner: {fileID: 251773995}
+  bigAsteroidSpawner: {fileID: 1443145699}
+  mediumAsteroidSpawner: {fileID: 376305817}
+  smallAsteroidSpawner: {fileID: 251773995}
   asteroidsAtStart: 2
 --- !u!1 &1443145697
 GameObject:
@@ -542,6 +544,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 247049692878835190, guid: bce5d11b4551af541a49191c236922f2, type: 3}
   maxCount: 6
+--- !u!1 &1605172389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605172390}
+  - component: {fileID: 1605172391}
+  m_Layer: 0
+  m_Name: Death Gatherer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1605172390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605172389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 723906754}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1605172391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605172389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c134dd4e4d6b62e4f8871818a02c0061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7972412818403596075
 PrefabInstance:
   m_ObjectHideFlags: 0

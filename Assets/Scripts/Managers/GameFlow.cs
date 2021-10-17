@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Project.Core.Objects;
 using Project.Core.Spawners;
 using Project.Core.Conf;
 
@@ -7,6 +8,9 @@ namespace Project.Managers
 {
     public class GameFlow : MonoBehaviour
     {
+        [SerializeField]
+        private DeathGatherer deathGatherer;
+        [Space(8)]
         [SerializeField]
         private SceneInfoSO sceneInfo;
         [SerializeField]
@@ -21,6 +25,16 @@ namespace Project.Managers
         private int asteroidsAtStart;
 
         public bool GameActive { get; private set; }
+
+        private void Awake()
+        {
+            if (deathGatherer != null)
+            {
+                bigAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
+                mediumAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
+                smallAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
+            }
+        }
 
         private void Start()
         {

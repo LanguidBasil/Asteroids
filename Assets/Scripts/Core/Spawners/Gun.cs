@@ -17,7 +17,7 @@ namespace Project.Core.Spawners
         {
             base.Awake();
 
-            OnSpawn += () => { reloadTimer = Time.time + reloadTime; };
+            OnSpawn += (object sender, SpawnArgs args) => { reloadTimer = Time.time + reloadTime; };
         }
 
         public void Fire()

@@ -13,7 +13,7 @@ namespace Project.Core.Spawners
         [Tooltip("Max number of simultaneously active objects in scene. \nFor performance keep as low as possible")]
         protected int maxCount;
 
-        public Action OnSpawn;
+        public event EventHandler<SpawnArgs> OnSpawn;
 
         protected GameObjectPool pool;
 
@@ -32,7 +32,7 @@ namespace Project.Core.Spawners
             {
                 gameObj.transform.SetPositionAndRotation(position, rotation);
                 gameObj.SetActive(true);
-                OnSpawn?.Invoke();
+                OnSpawn?.Invoke(this, new SpawnArgs(gameObj, position, rotation));
                 return true;
             }
 
