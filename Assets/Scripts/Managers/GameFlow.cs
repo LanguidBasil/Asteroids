@@ -10,6 +10,8 @@ namespace Project.Managers
     {
         [SerializeField]
         private DeathGatherer deathGatherer;
+        [SerializeField]
+        private Scorer scorer;
         [Space(8)]
         [SerializeField]
         private SceneInfoSO sceneInfo;
@@ -53,12 +55,12 @@ namespace Project.Managers
 
         public void GameContinue()
         {
-
+            Time.timeScale = 1;
         }
 
         public void GamePause()
         {
-
+            Time.timeScale = 0;
         }
 
         public void CreateAsteroid(AsteroidType asteroid, Vector3 position, Quaternion rotation)

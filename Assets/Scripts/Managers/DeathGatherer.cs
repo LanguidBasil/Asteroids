@@ -8,16 +8,25 @@ namespace Project.Managers
     {
         [SerializeField]
         private GameFlow gameFlow;
+        [SerializeField]
+        private Scorer scorer;
 
         public void DeathMessage(object sender, DeathArgs args)
+        {
+            scorer.AddScore(args.SO.XP);
+
+            SpawnAsteroids(sender, args);
+        }
+
+        private void SpawnAsteroids(object sender, DeathArgs args)
         {
             try
             {
                 var asteroid = (Asteroid)sender;
                 float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
                 for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
-                    gameFlow.CreateAsteroid(asteroid.Split.AsteroidToSpawn, 
-                                            args.Sender.transform.position, 
+                    gameFlow.CreateAsteroid(asteroid.Split.AsteroidToSpawn,
+                                            args.Sender.transform.position,
                                             Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
             }
             catch (System.InvalidCastException)
