@@ -1,8 +1,6 @@
-using UnityEngine;
-
 using Project.Core.Conf;
 
-namespace Project.Core
+namespace Project.Core.Objects
 {
     public class Asteroid : DestroyableObject
     {

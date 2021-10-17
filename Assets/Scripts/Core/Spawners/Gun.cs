@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Core
+namespace Project.Core.Spawners
 {
     public class Gun : Spawner
     {

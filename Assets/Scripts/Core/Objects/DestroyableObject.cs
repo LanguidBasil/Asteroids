@@ -1,6 +1,6 @@
 using System;
 
-namespace Project.Core
+namespace Project.Core.Objects
 {
     public class DestroyableObject : SpaceObject
     {

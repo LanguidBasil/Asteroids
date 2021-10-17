@@ -3,7 +3,7 @@ using UnityEngine;
 using Project.Core.Conf;
 using Project.Tools;
 
-namespace Project.Core
+namespace Project.Core.Objects
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class SpaceObject : MonoBehaviour

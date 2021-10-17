@@ -3,7 +3,7 @@ using UnityEngine;
 
 using Project.Tools;
 
-namespace Project.Core
+namespace Project.Core.Spawners
 {
     public class Spawner : MonoBehaviour
     {

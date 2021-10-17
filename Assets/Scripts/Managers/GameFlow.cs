@@ -1,8 +1,7 @@
 using UnityEngine;
 
-using Project.Core;
+using Project.Core.Spawners;
 using Project.Core.Conf;
-using Project.Core.ObjectTypes;
 
 namespace Project.Managers
 {

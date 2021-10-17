@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using Project.Core.ObjectTypes;
-
 namespace Project.Core.Conf
 {
     [CreateAssetMenu(fileName = "New Asteroid Split Info", menuName = "Project / Core / Asteroid Split Info")]

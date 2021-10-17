@@ -1,9 +1,10 @@
 using UnityEngine;
 
+using Project.Core.Spawners;
 using Project.Input;
 using Project.Tools;
 
-namespace Project.Core
+namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {

@@ -1,4 +1,4 @@
-namespace Project.Core.ObjectTypes
+namespace Project.Core.Conf
 {
     public enum AsteroidType
     {
