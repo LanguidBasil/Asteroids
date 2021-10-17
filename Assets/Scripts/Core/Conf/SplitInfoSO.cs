@@ -8,7 +8,6 @@ namespace Project.Core.Conf
     public class SplitInfoSO : ScriptableObject
     {
         public AsteroidType AsteroidToSpawn;
-        public Spawner s;
         public int AsteroidsNumber;
         public int AngleBetweenAsteroids;
     }

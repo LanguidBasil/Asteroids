@@ -14,8 +14,6 @@ namespace Project.Core.Conf
         [Header("Destroyable Objects")]
         public int StartingHealth;
         public int XP;
-        public ActionOnDeath OnDeath;
-        public SplitInfoSO Split;
 
         [Header("SpaceShip Objects")]
         public int MaxSpeed;
