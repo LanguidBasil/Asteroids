@@ -15,9 +15,9 @@ namespace Project.Core.Objects
 
         private Vector2 direction;
 
-        protected override void Awake()
+        protected override void OnEnable()
         {
-            base.Awake();
+            base.OnEnable();
 
             input = GetComponentInChildren<IInputGiver>();
 

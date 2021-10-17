@@ -12,7 +12,7 @@ namespace Project.Core.Objects
 
         protected Rigidbody2D rb2d;
 
-        protected virtual void Awake()
+        protected virtual void OnEnable()
         {
             rb2d = GetComponent<Rigidbody2D>();
         }

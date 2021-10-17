@@ -12,8 +12,10 @@ namespace Project.Core.Objects
 
         private float invincibilityTimer;
 
-        protected virtual void Start()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+
             invincibilityTimer = Time.time + SO.InvincibiltyTime;
         }
 

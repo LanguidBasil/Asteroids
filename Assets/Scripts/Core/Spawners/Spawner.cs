@@ -39,13 +39,5 @@ namespace Project.Core.Spawners
             Debug.LogWarning($"Pool on {gameObject.name} was empty and spawn failed");
             return false;
         }
-
-        /// <returns>
-        /// returns true if spawn succeded and false otherwise
-        /// </returns>
-        public bool Spawn(Vector3 position, Vector3 rotationInEulerAngles)
-        {
-            return Spawn(position, Quaternion.Euler(rotationInEulerAngles));
-        }
     }
 }
