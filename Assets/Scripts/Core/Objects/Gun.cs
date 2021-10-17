@@ -1,44 +1,35 @@
-using System;
 using UnityEngine;
-
-using Project.Tools;
 
 namespace Project.Core.Objects
 {
-    public class Gun : MonoBehaviour
+    public class Gun : Spawner
     {
         [SerializeField]
-        private GameObject projectilePrefab;
-        [SerializeField]
-        private int maxBullets;
+        [Tooltip("Green gizmos color")]
+        private Transform bulletSpawnPosition;
         [SerializeField]
         [Tooltip("In seconds")]
         private float reloadTime;
 
-        public Action OnFire;
-
-        private GameObjectPool bullets;
         private float reloadTimer;
 
-        private void Awake()
+        protected override void Awake()
         {
-            bullets = new GameObjectPool(maxBullets, projectilePrefab);
+            base.Awake();
 
-            OnFire += () => { reloadTimer = Time.time + reloadTime; };
+            OnSpawn += () => { reloadTimer = Time.time + reloadTime; };
         }
 
         public void Fire()
         {
             if (Time.time > reloadTimer)
-            {
-                GameObject bullet = bullets.Get();
-                if (bullet != null)
-                {
-                    bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-                    bullet.SetActive(true);
-                    OnFire?.Invoke();
-                }
-            }
+                Spawn(bulletSpawnPosition.position, bulletSpawnPosition.rotation);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(bulletSpawnPosition.position, 0.25f);
         }
     }
 }
