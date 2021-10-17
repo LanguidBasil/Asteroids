@@ -16,7 +16,7 @@ namespace Project.Core.Objects
 
             if (Health < 1)
             {
-                OnDestroy?.Invoke(this, new DeathArgs(SO));
+                OnDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
                 gameObject.SetActive(false);
             }
         }
