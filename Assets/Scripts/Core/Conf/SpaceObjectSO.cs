@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Project.Core.Conf
 {
-    [CreateAssetMenu(fileName = "New Space Object SO", menuName = "Project / Core / Space Object SO")]
+    [CreateAssetMenu(fileName = "New Space Object", menuName = "Project / Core / Space Object")]
     public class SpaceObjectSO : ScriptableObject
     {
         [Header("Space Objects")]
