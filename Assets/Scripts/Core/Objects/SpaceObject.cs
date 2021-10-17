@@ -23,17 +23,28 @@ namespace Project.Core.Objects
                 rb2d.AddForce(SO.Speed * Time.deltaTime * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z));
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        protected void OnCollisionEnter2D(Collision2D collision)
+        {
+            DestroyableObject desObj = collision.gameObject.GetComponent<DestroyableObject>();
+            if (desObj != null)
+                desObj.DecreaseHealth(SO.DamageOnCollide);
+        }
+
+        protected void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.gameObject.name == SO.SceneInfo.CameraBoundsGameObjectName)
             {
                 switch (SO.eOnExitCameraBounds)
                 {
-                    case OnExitCameraBounds.Disable:
+                    case ActionOnExitCameraBounds.Disable:
                         gameObject.SetActive(false);
                         break;
-                    //case OnExitCameraBounds.Teleport:
-                    //    break;
+                    case ActionOnExitCameraBounds.Teleport:
+                        if (Mathf.Abs(transform.position.x) > SO.SceneInfo.CameraBoundsExtents.x)
+                            transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+                        if (Mathf.Abs(transform.position.y) > SO.SceneInfo.CameraBoundsExtents.y)
+                            transform.position = new Vector3(transform.position.x, transform.position.y * -1, transform.position.z);
+                        break;
                     default:
                         break;
                 }

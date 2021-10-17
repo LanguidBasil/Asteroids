@@ -6,7 +6,19 @@ namespace Project.Core.Objects
     {
         public int Health { get; protected set; }
 
-        public Action OnHealthDecrease;
-        public Action OnDestroy;
+        public event EventHandler OnHealthDecrease;
+        public event EventHandler<DeathArgs> OnDestroy;
+
+        public void DecreaseHealth(int amount)
+        {
+            Health -= amount;
+            OnHealthDecrease?.Invoke(this, null);
+
+            if (Health < 1)
+            {
+                OnDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
+                gameObject.SetActive(false);
+            }
+        }
     }
 }
