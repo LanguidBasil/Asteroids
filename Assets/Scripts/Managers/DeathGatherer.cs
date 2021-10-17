@@ -15,24 +15,30 @@ namespace Project.Managers
         {
             scorer.AddScore(args.SO.XP);
 
-            SpawnAsteroids(sender, args);
+            SpawnPlayer(sender as SpaceShip, args);
+            SpawnAsteroids(sender as Asteroid, args);
         }
 
-        private void SpawnAsteroids(object sender, DeathArgs args)
+        private void SpawnPlayer(SpaceShip player, DeathArgs args)
         {
-            try
-            {
-                var asteroid = (Asteroid)sender;
-                float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
-                for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
-                    gameFlow.CreateAsteroid(asteroid.Split.AsteroidToSpawn,
-                                            args.Sender.transform.position,
-                                            Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
-            }
-            catch (System.InvalidCastException)
-            {
-                Debug.Log($"{sender} is not an Asteroid");
-            }
+            if (player == null)
+                return;
+
+            scorer.AddLife(-1);
+            if (scorer.Lifes > 0)
+                gameFlow.CreatePlayer(Vector3.zero, Quaternion.identity);
+        }
+
+        private void SpawnAsteroids(Asteroid asteroid, DeathArgs args)
+        {
+            if (asteroid == null)
+                return;
+
+            float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
+            for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
+                gameFlow.CreateAsteroid(asteroid.Split.AsteroidToSpawn,
+                                        args.Sender.transform.position,
+                                        Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Project.Managers
                 bigAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
                 mediumAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
                 smallAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
+                playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
             }
         }
 
@@ -67,6 +68,11 @@ namespace Project.Managers
         public void GamePause()
         {
             Time.timeScale = 0;
+        }
+
+        public void CreatePlayer(Vector3 position, Quaternion rotation)
+        {
+            playerSpawner.Spawn(position, rotation);
         }
 
         public void CreateAsteroid(AsteroidType asteroid, Vector3 position, Quaternion rotation)
