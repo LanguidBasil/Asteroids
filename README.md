@@ -1,2 +1,2 @@
 # Megame-Asteroids
-1st test for application to Megame
+1st assignment for application to Megame
