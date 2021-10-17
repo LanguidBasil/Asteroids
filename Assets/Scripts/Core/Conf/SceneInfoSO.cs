@@ -6,5 +6,7 @@ namespace Project.Core.Conf
     public class SceneInfoSO : ScriptableObject
     {
         public string CameraBoundsGameObjectName;
+        [Tooltip("Half the size of the collider")]
+        public Vector2 CameraBoundsExtents;
     }
 }

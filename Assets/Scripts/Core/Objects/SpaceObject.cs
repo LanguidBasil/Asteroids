@@ -39,8 +39,12 @@ namespace Project.Core.Objects
                     case OnExitCameraBounds.Disable:
                         gameObject.SetActive(false);
                         break;
-                    //case OnExitCameraBounds.Teleport:
-                    //    break;
+                    case OnExitCameraBounds.Teleport:
+                        if (Mathf.Abs(transform.position.x) > SO.SceneInfo.CameraBoundsExtents.x)
+                            transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+                        if (Mathf.Abs(transform.position.y) > SO.SceneInfo.CameraBoundsExtents.y)
+                            transform.position = new Vector3(transform.position.x, transform.position.y * -1, transform.position.z);
+                        break;
                     default:
                         break;
                 }
