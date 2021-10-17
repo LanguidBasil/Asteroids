@@ -9,13 +9,13 @@ namespace Project.Core.Conf
         public SceneInfoSO SceneInfo;
         public int Speed;
         public int DamageOnCollide;
-        public OnExitCameraBounds eOnExitCameraBounds;
+        public ActionOnExitCameraBounds eOnExitCameraBounds;
 
         [Header("Destroyable Objects")]
         public int StartingHealth;
         public int XP;
-        //public eActionOnDeath ActionOnDeath;
-        //public SplitContext SplitContext;
+        public ActionOnDeath OnDeath;
+        public SplitSO Split;
 
         [Header("SpaceShip Objects")]
         public int MaxSpeed;

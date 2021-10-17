@@ -36,10 +36,10 @@ namespace Project.Core
             {
                 switch (SO.eOnExitCameraBounds)
                 {
-                    case OnExitCameraBounds.Disable:
+                    case ActionOnExitCameraBounds.Disable:
                         gameObject.SetActive(false);
                         break;
-                    case OnExitCameraBounds.Teleport:
+                    case ActionOnExitCameraBounds.Teleport:
                         if (Mathf.Abs(transform.position.x) > SO.SceneInfo.CameraBoundsExtents.x)
                             transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
                         if (Mathf.Abs(transform.position.y) > SO.SceneInfo.CameraBoundsExtents.y)

@@ -11,11 +11,11 @@ namespace Project.Managers
         [SerializeField]
         private SceneInfoSO sceneInfo;
         [SerializeField]
-        private Spawner BigAsteroidSpawner;
+        private Spawner bigAsteroidSpawner;
         [SerializeField]
-        private Spawner MediumAsteroidSpawner;
+        private Spawner mediumAsteroidSpawner;
         [SerializeField]
-        private Spawner SmallAsteroidSpawner;
+        private Spawner smallAsteroidSpawner;
         [Space(8)]
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
@@ -34,7 +34,7 @@ namespace Project.Managers
             for (int i = 0; i < asteroidsAtStart; i++)
             {
                 (Vector3, Quaternion) pos = RandomOffCameraPosition();
-                BigAsteroidSpawner.Spawn(pos.Item1, pos.Item2);
+                bigAsteroidSpawner.Spawn(pos.Item1, pos.Item2);
             }
         }
 
@@ -53,13 +53,13 @@ namespace Project.Managers
             switch (asteroid)
             {
                 case AsteroidType.Big:
-                    BigAsteroidSpawner.Spawn(position, rotation);
+                    bigAsteroidSpawner.Spawn(position, rotation);
                     break;
                 case AsteroidType.Medium:
-                    MediumAsteroidSpawner.Spawn(position, rotation);
+                    mediumAsteroidSpawner.Spawn(position, rotation);
                     break;
                 case AsteroidType.Small:
-                    SmallAsteroidSpawner.Spawn(position, rotation);
+                    smallAsteroidSpawner.Spawn(position, rotation);
                     break;
                 default:
                     break;
