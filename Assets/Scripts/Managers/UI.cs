@@ -15,12 +15,22 @@ namespace Project.Managers
         [SerializeField]
         private Button continueButton;
         [SerializeField]
-        private Button controllsButton;
+        private Toggle controllsToggle;
+        [Space(8)]
+        [SerializeField]
+        private string keybordControlSchemeName;
+        [SerializeField]
+        private string keybordAndMouseControlSchemeName;
+
+        const string keyboard = "KeyB";
+        const string keyboardAndMouse = "KeyB & Mouse";
 
         private void Start()
         {
             continueButton.interactable = false;
             canvas.SetActive(true);
+
+            SwitchControlScheme(keyboard, keybordControlSchemeName);
         }
 
         public void Continue()
@@ -38,7 +48,16 @@ namespace Project.Managers
 
         public void SwitchControls()
         {
+            if (controllsToggle.GetComponentInChildren<Text>().text == keyboard)
+                SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
+            else
+                SwitchControlScheme(keyboard, keybordControlSchemeName);
+        }
 
+        private void SwitchControlScheme(string dysplayedText, string controlSchemeName)
+        {
+            controllsToggle.GetComponentInChildren<Text>().text = dysplayedText;
+            input.SwitchCurrentControlScheme(controlSchemeName);
         }
 
         public void Quit()
