@@ -13,10 +13,9 @@ namespace Project.Managers
 
         public bool GameActive { get; private set; }
 
-        // Remove when UI will appear
-        private void Start()
+        private void Awake()
         {
-            GameStart();
+            GameActive = false;
         }
 
         public void GameStart()
@@ -35,6 +34,11 @@ namespace Project.Managers
         {
             GameActive = false;
             Time.timeScale = 0;
+        }
+
+        public void GameQuit()
+        {
+            Application.Quit();
         }
     }
 }
