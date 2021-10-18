@@ -404,11 +404,11 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_ActionsAsset: {fileID: -944628639613478452, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
-  m_PointAction: {fileID: 8596496823468933413, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
-  m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
+  m_PointAction: {fileID: 6892898171980552494, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
+  m_MoveAction: {fileID: -4115127695422284631, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
+  m_SubmitAction: {fileID: -3008410422700352165, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
+  m_CancelAction: {fileID: -7042924886268014856, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
+  m_LeftClickAction: {fileID: -3008410422700352165, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}

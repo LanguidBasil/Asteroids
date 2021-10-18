@@ -11,7 +11,7 @@ namespace Project.Core.Objects
         [SerializeField]
         private Gun myGun;
 
-        private IInputGiver input;
+        private IMovementInput input;
 
         private Vector2 direction;
 
@@ -32,7 +32,7 @@ namespace Project.Core.Objects
                 rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
         }
         
-        public void SetInput(IInputGiver input)
+        public void SetInput(IMovementInput input)
         {
             this.input = input;
         }

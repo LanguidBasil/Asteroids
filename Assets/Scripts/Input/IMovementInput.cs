@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Project.Input
 {
-    public interface IInputGiver
+    public interface IMovementInput
     {
         public Vector2 LookPosition { get; }
         public float Rotation { get; }
