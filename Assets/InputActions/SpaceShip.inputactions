@@ -6,6 +6,14 @@
             "id": "9372dfb8-275d-441c-8d62-c87d2de11fc3",
             "actions": [
                 {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "4bbe4627-597d-4ad3-8caa-c39f1e5ddd4f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Rotation",
                     "type": "Value",
                     "id": "38b4f65c-f71a-47bd-8bed-ba1f243e961e",
@@ -144,7 +152,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;KeyboardAndMouse",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -179,6 +187,17 @@
                     "processors": "",
                     "groups": "KeyboardAndMouse",
                     "action": "Acceleration",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e9afae6-a7f7-4ed4-bd13-a733f8f6694a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
