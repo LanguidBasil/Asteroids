@@ -35,10 +35,5 @@ namespace Project.Managers
             GameActive = false;
             Time.timeScale = 0;
         }
-
-        public void GameQuit()
-        {
-            Application.Quit();
-        }
     }
 }
