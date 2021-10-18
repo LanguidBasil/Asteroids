@@ -39,5 +39,13 @@ namespace Project.Core.Spawners
             Debug.LogWarning($"Pool on {gameObject.name} was empty and spawn failed");
             return false;
         }
+
+        /// <summary>
+        /// Disables all spawned objects
+        /// </summary>
+        public virtual void KillAll()
+        {
+            pool.DisableAll();
+        }
     }
 }

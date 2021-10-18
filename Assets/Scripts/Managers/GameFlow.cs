@@ -1,28 +1,11 @@
 using UnityEngine;
 
-using Project.Core.Objects;
-using Project.Core.Spawners;
-using Project.Core.Conf;
-
 namespace Project.Managers
 {
     public class GameFlow : MonoBehaviour
     {
         [SerializeField]
-        private DeathGatherer deathGatherer;
-        [SerializeField]
-        private Scorer scorer;
-        [Space(8)]
-        [SerializeField]
-        private SceneInfoSO sceneInfo;
-        [SerializeField]
-        private Spawner bigAsteroidSpawner;
-        [SerializeField]
-        private Spawner mediumAsteroidSpawner;
-        [SerializeField]
-        private Spawner smallAsteroidSpawner;
-        [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private EntityManager deathGatherer;
         [Space(8)]
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
@@ -32,88 +15,25 @@ namespace Project.Managers
 
         private void Awake()
         {
-            if (deathGatherer != null)
-            {
-                bigAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
-                mediumAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
-                smallAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
-                playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += deathGatherer.DeathMessage; };
-            }
-        }
-
-        // Remove when UI will appear
-        private void Start()
-        {
-            GameStart();
+            GameActive = false;
         }
 
         public void GameStart()
         {
+            deathGatherer.GameInit(asteroidsAtStart);
             GameActive = true;
-
-            playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
-
-            for (int i = 0; i < asteroidsAtStart; i++)
-            {
-                (Vector3, Quaternion) pos = RandomOffCameraPosition();
-                bigAsteroidSpawner.Spawn(pos.Item1, pos.Item2);
-            }
         }
 
         public void GameContinue()
         {
+            GameActive = true;
             Time.timeScale = 1;
         }
 
         public void GamePause()
         {
+            GameActive = false;
             Time.timeScale = 0;
-        }
-
-        public void CreatePlayer(Vector3 position, Quaternion rotation)
-        {
-            playerSpawner.Spawn(position, rotation);
-        }
-
-        public void CreateAsteroid(AsteroidType asteroid, Vector3 position, Quaternion rotation)
-        {
-            switch (asteroid)
-            {
-                case AsteroidType.Big:
-                    bigAsteroidSpawner.Spawn(position, rotation);
-                    break;
-                case AsteroidType.Medium:
-                    mediumAsteroidSpawner.Spawn(position, rotation);
-                    break;
-                case AsteroidType.Small:
-                    smallAsteroidSpawner.Spawn(position, rotation);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private (Vector3, Quaternion) RandomOffCameraPosition()
-        {
-            Vector2 cameraExtents = sceneInfo.CameraBoundsExtents;
-            int angle = Random.Range(-45, 45);
-            switch (Random.Range(0, 3))
-            {
-                // right
-                case 0:
-                    return (new Vector3(cameraExtents.x, Random.Range(-cameraExtents.y, cameraExtents.y)), Quaternion.Euler(0, 0, angle + 90));
-                // up
-                case 1:
-                    return (new Vector3(Random.Range(-cameraExtents.x, cameraExtents.x), cameraExtents.y), Quaternion.Euler(0, 0, angle + 180));
-                // left
-                case 2:
-                    return (new Vector3(-cameraExtents.x, Random.Range(-cameraExtents.y, cameraExtents.y)), Quaternion.Euler(0, 0, angle + 270));
-                // down
-                case 3:
-                    return (new Vector3(Random.Range(-cameraExtents.x, cameraExtents.x), -cameraExtents.y), Quaternion.Euler(0, 0, angle));
-                default:
-                    return default;
-            }
         }
     }
 }

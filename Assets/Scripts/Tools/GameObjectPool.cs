@@ -27,5 +27,11 @@ namespace Project.Tools
 
             return null;
         }
+
+        public void DisableAll()
+        {
+            for (int i = 0; i < maxSize; i++)
+                pool[i].SetActive(false);
+        }
     }
 }
