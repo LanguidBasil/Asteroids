@@ -48,8 +48,8 @@ MonoBehaviour:
   canvas: {fileID: 0}
   continueButton: {fileID: 0}
   controllsToggle: {fileID: 0}
-  keybordControllSchemeName: Keyboard
-  keybordAndMouseControllSchemeName: KeyboardAndMouse
+  keybordControlSchemeName: Keyboard
+  keybordAndMouseControlSchemeName: KeyboardAndMouse
 --- !u!1 &6588074735092443503
 GameObject:
   m_ObjectHideFlags: 0
