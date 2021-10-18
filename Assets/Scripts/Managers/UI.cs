@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,39 +10,54 @@ namespace Project.Managers
         [SerializeField]
         private GameFlow gameFlow;
         [SerializeField]
+        private Scorer scorer;
+        [SerializeField]
         private PlayerInput input;
         [SerializeField]
-        private GameObject canvas;
+        private string keybordControlSchemeName;
+        [SerializeField]
+        private string keybordAndMouseControlSchemeName;
+        [Space(8)]
+        [SerializeField]
+        private GameObject menu;
         [SerializeField]
         private Button continueButton;
         [SerializeField]
         private Toggle controllsToggle;
         [Space(8)]
         [SerializeField]
-        private string keybordControlSchemeName;
+        private GameObject hud;
         [SerializeField]
-        private string keybordAndMouseControlSchemeName;
+        private Text scoreNumber;
+        [SerializeField]
+        private Text lifesNumber;
 
         const string keyboard = "KeyB";
         const string keyboardAndMouse = "KeyB & Mouse";
 
+        private void Awake()
+        {
+            scorer.OnScoreChanged += (object sender, EventArgs e) => { scoreNumber.text = scorer.Score.ToString(); };
+            scorer.OnLifeChanged += (object sender, EventArgs e) => { lifesNumber.text = scorer.Lifes.ToString(); };
+        }
+
         private void Start()
         {
             continueButton.interactable = false;
-            canvas.SetActive(true);
+            menu.SetActive(true);
 
             SwitchControlScheme(keyboard, keybordControlSchemeName);
         }
 
         public void Continue()
         {
-            canvas.SetActive(false);
+            menu.SetActive(false);
             gameFlow.GameContinue();
         }
 
         public void NewGame()
         {
-            canvas.SetActive(false);
+            menu.SetActive(false);
             continueButton.interactable = true;
             gameFlow.GameStart();
         }

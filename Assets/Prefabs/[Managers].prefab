@@ -44,12 +44,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameFlow: {fileID: 6588074736362374403}
+  scorer: {fileID: 6588074735092443501}
   input: {fileID: 0}
-  canvas: {fileID: 0}
-  continueButton: {fileID: 0}
-  controllsToggle: {fileID: 0}
   keybordControlSchemeName: Keyboard
   keybordAndMouseControlSchemeName: KeyboardAndMouse
+  menu: {fileID: 0}
+  continueButton: {fileID: 0}
+  controllsToggle: {fileID: 0}
+  hud: {fileID: 0}
+  scoreNumber: {fileID: 0}
+  lifesNumber: {fileID: 0}
 --- !u!1 &6588074735092443503
 GameObject:
   m_ObjectHideFlags: 0
