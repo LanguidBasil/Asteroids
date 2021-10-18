@@ -6,7 +6,7 @@ namespace Project.Input
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerInputs : MonoBehaviour, IInputGiver
     {
-        public Vector2 MousePosition { get; private set; }
+        public Vector2 LookPosition { get; private set; }
 
         public float Rotation { get; private set; }
 
@@ -18,7 +18,7 @@ namespace Project.Input
 
         public void OnMousePosition(InputAction.CallbackContext context)
         {
-            MousePosition = context.ReadValue<Vector2>();
+            LookPosition = context.ReadValue<Vector2>();
         }
 
         public void OnRotation(InputAction.CallbackContext context)
