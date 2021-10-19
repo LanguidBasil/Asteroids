@@ -12,6 +12,10 @@ namespace Project.Input
 
         public bool Fire { get; private set; }
 
+        public bool Submit { get; private set; }
+
+        public bool Cancel { get; private set; }
+
         public void OnMousePosition(InputAction.CallbackContext context)
         {
             LookPosition = context.ReadValue<Vector2>();
@@ -25,6 +29,16 @@ namespace Project.Input
         public void OnFire(InputAction.CallbackContext context)
         {
             Fire = context.ReadValueAsButton();
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+            Submit = context.ReadValueAsButton();
+        }
+
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+            Cancel = context.ReadValueAsButton();
         }
     }
 }

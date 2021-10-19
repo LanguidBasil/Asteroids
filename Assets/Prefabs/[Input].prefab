@@ -92,15 +92,51 @@ MonoBehaviour:
     m_ActionId: 4bbe4627-597d-4ad3-8caa-c39f1e5ddd4f
     m_ActionName: Gameplay/MousePosition[/Mouse/position]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254761363548229188}
+        m_TargetAssemblyTypeName: Project.Input.PlayerMovementInput, Assembly-CSharp
+        m_MethodName: OnNavigation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3fda9b0b-520d-43e4-a5ff-a95f93cc531c
     m_ActionName: Gameplay/Navigation[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254761363548229188}
+        m_TargetAssemblyTypeName: Project.Input.PlayerMovementInput, Assembly-CSharp
+        m_MethodName: OnSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a484e7a3-41e3-4c6d-acc7-1028df15bc68
     m_ActionName: Gameplay/Submit[/Keyboard/enter,/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254761363548229188}
+        m_TargetAssemblyTypeName: Project.Input.PlayerMovementInput, Assembly-CSharp
+        m_MethodName: OnCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5bb576d3-eb02-4925-a08d-26322981aa01
     m_ActionName: Gameplay/Cancel[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 1
