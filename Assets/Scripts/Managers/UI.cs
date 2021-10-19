@@ -17,6 +17,10 @@ namespace Project.Managers
         private string keybordControlSchemeName;
         [SerializeField]
         private string keybordAndMouseControlSchemeName;
+        [SerializeField]
+        private string gameplayActionMapName;
+        [SerializeField]
+        private string uiActionMapName;
         [Space(8)]
         [SerializeField]
         private GameObject menu;
@@ -46,18 +50,23 @@ namespace Project.Managers
             continueButton.interactable = false;
             menu.SetActive(true);
 
+            SwitchActionMap(uiActionMapName);
             SwitchControlScheme(keyboard, keybordControlSchemeName);
         }
 
         public void Continue()
         {
             menu.SetActive(false);
+            SwitchActionMap(gameplayActionMapName);
+
             gameFlow.GameContinue();
         }
 
         public void NewGame()
         {
             menu.SetActive(false);
+            SwitchActionMap(gameplayActionMapName);
+
             continueButton.interactable = true;
             gameFlow.GameStart();
         }
@@ -68,6 +77,11 @@ namespace Project.Managers
                 SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
             else
                 SwitchControlScheme(keyboard, keybordControlSchemeName);
+        }
+
+        private void SwitchActionMap(string actionMapName)
+        {
+            input.SwitchCurrentActionMap(actionMapName);
         }
 
         private void SwitchControlScheme(string dysplayedText, string controlSchemeName)

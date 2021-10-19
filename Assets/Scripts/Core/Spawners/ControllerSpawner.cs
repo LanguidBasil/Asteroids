@@ -19,7 +19,7 @@ namespace Project.Core.Spawners
             if (gameObj != null)
             {
                 gameObj.transform.SetPositionAndRotation(position, rotation);
-                gameObj.GetComponent<SpaceShip>().SetInput(input.GetComponent<IInputGiver>());
+                gameObj.GetComponent<SpaceShip>().SetInput(input.GetComponent<IMovementInput>());
                 gameObj.SetActive(true);
                 OnSpawn?.Invoke(this, new SpawnArgs(gameObj, position, rotation));
                 return true;
