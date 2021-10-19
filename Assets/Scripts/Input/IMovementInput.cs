@@ -4,8 +4,8 @@ namespace Project.Input
 {
     public interface IMovementInput
     {
-        public Vector2 LookPosition { get; }
-        public Vector2 Navigation { get; }
+        public Vector2 Look { get; }
+        public Vector2 Move { get; }
         public bool Fire { get; }
     }
 }

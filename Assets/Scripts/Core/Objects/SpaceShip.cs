@@ -17,9 +17,9 @@ namespace Project.Core.Objects
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -input.Navigation.x * SO.RotationSpeed));
+            transform.Rotate(new Vector3(0, 0, -input.Move.x * SO.RotationSpeed));
 
-            if (input.Navigation.y == 1)
+            if (input.Move.y == 1)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
 
             if (input.Fire)
@@ -28,7 +28,7 @@ namespace Project.Core.Objects
 
         protected override void FixedUpdate()
         {
-            if (input.Navigation.y == 1 && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
+            if (input.Move.y == 1 && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
                 rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
         }
         

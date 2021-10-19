@@ -128,6 +128,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8711995498820125090, guid: b838e0d167d174647a6dd7d47a861507, type: 3}
   m_PrefabInstance: {fileID: 8711995497663576589}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &233630103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+  m_PrefabInstance: {fileID: 6588074735067693331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ec825bf2e119148ad047b5ac4421d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &251773995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3810669669698037184, guid: 14c9b12407326524f855876ada0e709b, type: 3}
@@ -502,9 +513,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: 272f6d14-89ba-496f-b7ff-215263d3219f
-      objectReference: {fileID: 0}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1117702469}
+    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 233630103}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -590,6 +605,10 @@ PrefabInstance:
       propertyPath: controllsToggle
       value: 
       objectReference: {fileID: 335102506}
+    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: keybordAndMouseControlSchemeName
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 6588074735753130449, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_RootOrder
       value: 2
