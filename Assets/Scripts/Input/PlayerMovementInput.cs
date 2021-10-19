@@ -8,9 +8,7 @@ namespace Project.Input
     {
         public Vector2 LookPosition { get; private set; }
 
-        public float Rotation { get; private set; }
-
-        public bool Acceleration { get; private set; }
+        public Vector2 Navigation { get; private set; }
 
         public bool Fire { get; private set; }
 
@@ -19,14 +17,9 @@ namespace Project.Input
             LookPosition = context.ReadValue<Vector2>();
         }
 
-        public void OnRotation(InputAction.CallbackContext context)
+        public void OnNavigation(InputAction.CallbackContext context)
         {
-            Rotation = context.ReadValue<float>();
-        }
-
-        public void OnAcceleration(InputAction.CallbackContext context)
-        {
-            Acceleration = context.ReadValueAsButton();
+            Navigation = context.ReadValue<Vector2>();
         }
 
         public void OnFire(InputAction.CallbackContext context)

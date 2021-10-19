@@ -493,22 +493,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1738850741, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_MoveAction
-      value: 
-      objectReference: {fileID: -8125649549719035274, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
-    - target: {fileID: 1738850741, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_PointAction
-      value: 
-      objectReference: {fileID: 8596496823468933413, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
-    - target: {fileID: 1738850741, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_SubmitAction
-      value: 
-      objectReference: {fileID: 913664558723266468, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
-    - target: {fileID: 1738850741, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_LeftClickAction
-      value: 
-      objectReference: {fileID: 913664558723266468, guid: 00d056d90de826942aa8752290ff4cd6, type: 3}
     - target: {fileID: 1738850743, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_FirstSelected
       value: 
@@ -517,18 +501,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6588074735067693332}
-    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1117702469}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -680,17 +652,6 @@ PrefabInstance:
       objectReference: {fileID: 376305817}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
---- !u!114 &6588074735067693332 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-  m_PrefabInstance: {fileID: 6588074735067693331}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ec825bf2e119148ad047b5ac4421d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8711995497663576589
 PrefabInstance:
   m_ObjectHideFlags: 0
