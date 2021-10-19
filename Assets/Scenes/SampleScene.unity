@@ -501,6 +501,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 272f6d14-89ba-496f-b7ff-215263d3219f
+      objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_RootOrder
       value: 1

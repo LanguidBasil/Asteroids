@@ -48,6 +48,8 @@ MonoBehaviour:
   input: {fileID: 0}
   keybordControlSchemeName: Keyboard
   keybordAndMouseControlSchemeName: KeyboardAndMouse
+  gameplayActionMapName: Gameplay
+  uiActionMapName: UI
   menu: {fileID: 0}
   continueButton: {fileID: 0}
   controllsToggle: {fileID: 0}
