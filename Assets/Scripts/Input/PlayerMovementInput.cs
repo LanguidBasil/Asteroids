@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace Project.Input
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerInputs : MonoBehaviour, IMovementInput
+    public class PlayerMovementInput : MonoBehaviour, IMovementInput
     {
         public Vector2 LookPosition { get; private set; }
 
