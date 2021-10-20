@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3725e4cc1d241204bb255eba82622b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
   gameFlow: {fileID: 6588074736362374403}
   scorer: {fileID: 6588074735092443501}
   pInput: {fileID: 0}
