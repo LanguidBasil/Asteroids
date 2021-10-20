@@ -15,15 +15,17 @@ namespace Project.Core.Objects
 
         private Vector2 direction;
 
+        protected void Start()
+        {
+            input.Fire += () => { myGun.Fire(); };
+        }
+
         protected virtual void Update()
         {
             transform.Rotate(new Vector3(0, 0, -input.Move.x * SO.RotationSpeed));
 
             if (input.Move.y == 1)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
-
-            if (input.Fire)
-                myGun.Fire();
         }
 
         protected override void FixedUpdate()

@@ -51,6 +51,13 @@ namespace Project.Managers
         {
             scorer.OnScoreChanged += (object sender, EventArgs e) => { scoreNumber.text = scorer.Score.ToString(); };
             scorer.OnLifeChanged += (object sender, EventArgs e) => { lifesNumber.text = scorer.Lifes.ToString(); };
+
+            pInput.Menu += () =>
+            {
+                SwitchActionMap(uiActionMapName);
+                menu.SetActive(true);
+                gameFlow.GamePause();
+            };
         }
 
         private void Start()
@@ -59,16 +66,6 @@ namespace Project.Managers
             menu.SetActive(true);
 
             SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
-        }
-
-        private void Update()
-        {
-            if (pInput.Menu)
-            {
-                SwitchActionMap(uiActionMapName);
-                menu.SetActive(true);
-                gameFlow.GamePause();
-            }
         }
 
         public void Continue()
