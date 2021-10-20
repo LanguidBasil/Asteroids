@@ -2,16 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+using Project.Input;
 
 namespace Project.Managers
 {
     public class UI : MonoBehaviour
     {
         [SerializeField]
+        private EventSystem eventSystem;
+        [SerializeField]
         private GameFlow gameFlow;
         [SerializeField]
         private Scorer scorer;
         [SerializeField]
+        private PlayerMovementInput pInput;
+        [SerializeField]
+        [Space(8)]
         private PlayerInput input;
         [SerializeField]
         private string keybordControlSchemeName;
@@ -51,6 +59,16 @@ namespace Project.Managers
             menu.SetActive(true);
 
             SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
+        }
+
+        private void Update()
+        {
+            if (pInput.Menu)
+            {
+                SwitchActionMap(uiActionMapName);
+                menu.SetActive(true);
+                gameFlow.GamePause();
+            }
         }
 
         public void Continue()

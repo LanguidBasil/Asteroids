@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &233630103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-  m_PrefabInstance: {fileID: 6588074735067693331}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ec825bf2e119148ad047b5ac4421d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &251773995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3810669669698037184, guid: 14c9b12407326524f855876ada0e709b, type: 3}
@@ -403,6 +392,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4254761363548229191, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
   m_PrefabInstance: {fileID: 4254761362938236915}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1738850741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4254761363548229188, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+  m_PrefabInstance: {fileID: 4254761362938236915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738850740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbc4109333b2ff4a9894359d1aa67e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1738850742 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
@@ -412,6 +412,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1738850744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1738850743, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+  m_PrefabInstance: {fileID: 4254761362938236915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738850740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1853531747 stripped
@@ -512,14 +523,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1117702469}
-    - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 233630103}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -590,6 +593,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1738850742}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: pInput
+      value: 
+      objectReference: {fileID: 1738850741}
+    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1738850744}
+    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: lifesNumber
       value: 
       objectReference: {fileID: 350825610}
@@ -605,10 +616,6 @@ PrefabInstance:
       propertyPath: controllsToggle
       value: 
       objectReference: {fileID: 335102506}
-    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-      propertyPath: keybordAndMouseControlSchemeName
-      value: Keyboard&Mouse
-      objectReference: {fileID: 0}
     - target: {fileID: 6588074735753130449, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_RootOrder
       value: 2

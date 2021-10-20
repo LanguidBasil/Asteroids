@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameFlow: {fileID: 6588074736362374403}
   scorer: {fileID: 6588074735092443501}
+  pInput: {fileID: 0}
   input: {fileID: 0}
   keybordControlSchemeName: Keyboard
-  keybordAndMouseControlSchemeName: KeyboardAndMouse
+  keybordAndMouseControlSchemeName: Keyboard&Mouse
   gameplayActionMapName: Gameplay
   uiActionMapName: UI
   menu: {fileID: 0}
