@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &166326267 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8711995498820125090, guid: b838e0d167d174647a6dd7d47a861507, type: 3}
-  m_PrefabInstance: {fileID: 8711995497663576589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &233630103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
@@ -398,6 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca60a1ba98936c46b3744d91ec54a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1468815710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8711995498227173265, guid: b838e0d167d174647a6dd7d47a861507, type: 3}
+  m_PrefabInstance: {fileID: 8711995497663576589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1738850740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4254761363548229191, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
@@ -507,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 1738850743, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 166326267}
+      objectReference: {fileID: 1468815710}
     - target: {fileID: 4254761363548229189, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_Camera
       value: 
