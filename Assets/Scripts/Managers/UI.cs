@@ -50,8 +50,7 @@ namespace Project.Managers
             continueButton.interactable = false;
             menu.SetActive(true);
 
-            SwitchActionMap(uiActionMapName);
-            SwitchControlScheme(keyboard, keybordControlSchemeName);
+            SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
         }
 
         public void Continue()
