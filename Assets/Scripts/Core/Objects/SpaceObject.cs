@@ -15,12 +15,7 @@ namespace Project.Core.Objects
         protected virtual void OnEnable()
         {
             rb2d = GetComponent<Rigidbody2D>();
-        }
-
-        protected virtual void FixedUpdate()
-        {
-            if (rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.Speed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z));
+            rb2d.velocity = SO.Speed * Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
         }
 
         protected void OnCollisionEnter2D(Collision2D collision)

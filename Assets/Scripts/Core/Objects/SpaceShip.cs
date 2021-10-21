@@ -15,6 +15,13 @@ namespace Project.Core.Objects
 
         private Vector2 direction;
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            rb2d.velocity = Vector2.zero;
+        }
+
         protected void Start()
         {
             input.Fire += () => { myGun.Fire(); };
@@ -28,10 +35,10 @@ namespace Project.Core.Objects
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
         }
 
-        protected override void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (input.Move.y == 1 && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
-                rb2d.AddForce(SO.Speed * Time.deltaTime * direction);
+                rb2d.AddForce(SO.Speed * 100 * Time.deltaTime * direction);
         }
         
         public void SetInput(IMovementInput input)
