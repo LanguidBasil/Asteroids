@@ -38,8 +38,6 @@ namespace Project.Managers
 
         private void DeathMessage(object sender, DeathArgs args)
         {
-            Debug.Log($"{args.Sender.name} died");
-
             scorer.AddScore(args.SO.XP);
 
             DeathSpawnPlayer(sender as SpaceShip, args);
@@ -52,7 +50,7 @@ namespace Project.Managers
                 return;
 
             scorer.AddLife(-1);
-            if (scorer.Lifes > 0)
+            if (scorer.Lives > 0)
                 playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
         }
 
