@@ -24,7 +24,10 @@ namespace Project.Managers
 
         public void GameStart()
         {
+            scorer.Clear();
             scorer.AddLife(livesOnStart);
+            Time.timeScale = 1;
+
             deathGatherer.GameInit(asteroidsAtStart);
             GameActive = true;
         }
