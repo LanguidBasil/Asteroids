@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 6588074736633478581}
   - component: {fileID: 6588074736633478580}
   m_Layer: 0
-  m_Name: Death Gatherer
+  m_Name: Entity Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
