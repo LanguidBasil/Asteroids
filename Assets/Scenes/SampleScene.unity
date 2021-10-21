@@ -605,6 +605,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 350825610}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: livesNumber
+      value: 
+      objectReference: {fileID: 350825610}
+    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: scoreNumber
       value: 
       objectReference: {fileID: 897828690}
@@ -616,6 +620,10 @@ PrefabInstance:
       propertyPath: controllsToggle
       value: 
       objectReference: {fileID: 335102506}
+    - target: {fileID: 6588074735092443501, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: livesAtStart
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6588074735753130449, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_RootOrder
       value: 2

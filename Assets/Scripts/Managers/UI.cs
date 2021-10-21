@@ -42,7 +42,7 @@ namespace Project.Managers
         [SerializeField]
         private Text scoreNumber;
         [SerializeField]
-        private Text lifesNumber;
+        private Text livesNumber;
 
         const string keyboard = "KeyB";
         const string keyboardAndMouse = "KeyB & Mouse";
@@ -50,7 +50,7 @@ namespace Project.Managers
         private void Awake()
         {
             scorer.OnScoreChanged += (object sender, EventArgs e) => { scoreNumber.text = scorer.Score.ToString(); };
-            scorer.OnLifeChanged += (object sender, EventArgs e) => { lifesNumber.text = scorer.Lifes.ToString(); };
+            scorer.OnLivesChanged += (object sender, EventArgs e) => { livesNumber.text = scorer.Lives.ToString(); };
 
             pInput.Menu += () =>
             {
