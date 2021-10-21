@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Project.Core.Objects
@@ -7,8 +8,21 @@ namespace Project.Core.Objects
     {
         public int Health { get; protected set; }
 
+        private event EventHandler<DeathArgs> onDestroy;
+
         public event EventHandler OnHealthDecrease;
-        public event EventHandler<DeathArgs> OnDestroy;
+        public event EventHandler<DeathArgs> OnDestroy
+        {
+            add
+            {
+                if (onDestroy == null || !onDestroy.GetInvocationList().Contains(value))
+                    onDestroy += value;
+            }
+            remove
+            {
+                onDestroy -= value;
+            }
+        }
 
         private float invincibilityTimer;
 
@@ -29,7 +43,7 @@ namespace Project.Core.Objects
 
             if (Health < 1)
             {
-                OnDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
+                onDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
                 gameObject.SetActive(false);
             }
         }

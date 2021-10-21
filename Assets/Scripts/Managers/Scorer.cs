@@ -5,20 +5,11 @@ namespace Project.Managers
 {
     public class Scorer : MonoBehaviour
     {
-        [SerializeField]
-        private int lifesAtStart;
-
         public int Score { get; private set; }
-        public int Lifes { get; private set; }
+        public int Lives { get; private set; }
 
         public event EventHandler OnScoreChanged;
-        public event EventHandler OnLifeChanged;
-
-        private void Awake()
-        {
-            Lifes = lifesAtStart;
-            OnLifeChanged?.Invoke(this, null);
-        }
+        public event EventHandler OnLivesChanged;
 
         public void AddScore(int amount)
         {
@@ -28,8 +19,8 @@ namespace Project.Managers
 
         public void AddLife(int amount)
         {
-            Lifes += amount;
-            OnLifeChanged?.Invoke(this, null);
+            Lives += amount;
+            OnLivesChanged?.Invoke(this, null);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Project.Input
@@ -6,6 +7,6 @@ namespace Project.Input
     {
         public Vector2 Look { get; }
         public Vector2 Move { get; }
-        public bool Fire { get; }
+        public Action Fire { get; set; }
     }
 }

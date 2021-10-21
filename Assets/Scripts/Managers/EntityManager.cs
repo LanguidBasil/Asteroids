@@ -24,10 +24,16 @@ namespace Project.Managers
 
         private void Awake()
         {
-            bigAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage; };
-            mediumAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage; };
-            smallAsteroidSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage; };
-            playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage; };
+            void f(object sender, SpawnArgs args)
+            {
+                args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage;
+            }
+
+            mediumAsteroidSpawner.OnSpawn += f;
+            bigAsteroidSpawner.OnSpawn += f;
+            mediumAsteroidSpawner.OnSpawn += f;
+            smallAsteroidSpawner.OnSpawn += f;
+            playerSpawner.OnSpawn += f;
         }
 
         private void DeathMessage(object sender, DeathArgs args)
@@ -44,7 +50,7 @@ namespace Project.Managers
                 return;
 
             scorer.AddLife(-1);
-            if (scorer.Lifes > 0)
+            if (scorer.Lives > 0)
                 playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
         }
 
@@ -54,33 +60,56 @@ namespace Project.Managers
                 return;
 
             float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
-            for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
+            Spawner spawner = null;
+            switch (asteroid.Split.AsteroidToSpawn)
             {
-                switch (asteroid.Split.AsteroidToSpawn)
-                {
-                    case AsteroidType.Big:
-                        bigAsteroidSpawner.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
-                        break;
-                    case AsteroidType.Medium:
-                        mediumAsteroidSpawner.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
-                        break;
-                    case AsteroidType.Small:
-                        smallAsteroidSpawner.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
-                        break;
-                    default:
-                        break;
-                }
+                case AsteroidType.Big:
+                    spawner = bigAsteroidSpawner;
+                    break;
+                case AsteroidType.Medium:
+                    spawner = mediumAsteroidSpawner;
+                    break;
+                case AsteroidType.Small:
+                    spawner = smallAsteroidSpawner;
+                    break;
+                default:
+                    Debug.LogError("Unknown asteroid type");
+                    break;
             }
+
+            for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
+                spawner?.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
         }
 
         public void GameInit(int bigAsteroidNumber)
         {
             playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
+            SpawnAsteroidOffCamera(AsteroidType.Big, bigAsteroidNumber);
+        }
 
-            for (int i = 0; i < bigAsteroidNumber; i++)
+        private void SpawnAsteroidOffCamera(AsteroidType asteroid, int number)
+        {
+            Spawner spawner = null;
+            switch (asteroid)
+            {
+                case AsteroidType.Big:
+                    spawner = bigAsteroidSpawner;
+                    break;
+                case AsteroidType.Medium:
+                    spawner = mediumAsteroidSpawner;
+                    break;
+                case AsteroidType.Small:
+                    spawner = smallAsteroidSpawner;
+                    break;
+                default:
+                    Debug.LogError("Unknown asteroid type");
+                    break;
+            }
+
+            for (int i = 0; i < number; i++)
             {
                 (Vector3, Quaternion) pos = RandomOffCameraPosition();
-                bigAsteroidSpawner.Spawn(pos.Item1, pos.Item2);
+                spawner?.Spawn(pos.Item1, pos.Item2);
             }
         }
 

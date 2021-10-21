@@ -7,7 +7,7 @@ namespace Project.Core.Conf
     {
         [Header("Space Objects")]
         public SceneInfoSO SceneInfo;
-        public int Speed;
+        public float Speed;
         public int DamageOnCollide;
         public ActionOnExitCameraBounds OnExitCameraBounds;
 
@@ -18,7 +18,7 @@ namespace Project.Core.Conf
         public int XP;
 
         [Header("SpaceShip Objects")]
-        public int MaxSpeed;
+        public float MaxSpeed;
         [Tooltip("In degrees per frame")]
         public int RotationSpeed;
     }

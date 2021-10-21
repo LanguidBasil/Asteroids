@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,9 @@ namespace Project.Input
 
         public Vector2 Move { get; private set; }
 
-        public bool Fire { get; private set; }
+        public Action Fire { get; set; }
+
+        public Action Menu { get; set; }
 
         public void OnLook(InputAction.CallbackContext context)
         {
@@ -24,7 +27,14 @@ namespace Project.Input
 
         public void OnFire(InputAction.CallbackContext context)
         {
-            Fire = context.ReadValueAsButton();
+            if (context.performed)
+                Fire?.Invoke();
+        }
+
+        public void OnMenu(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                Menu?.Invoke();
         }
     }
 }

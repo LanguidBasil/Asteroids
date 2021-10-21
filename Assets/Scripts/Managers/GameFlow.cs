@@ -5,8 +5,12 @@ namespace Project.Managers
     public class GameFlow : MonoBehaviour
     {
         [SerializeField]
+        private Scorer scorer;
+        [SerializeField]
         private EntityManager deathGatherer;
         [Space(8)]
+        [SerializeField]
+        private int livesOnStart;
         [SerializeField]
         [Tooltip("Number of big asteroids at start")]
         private int asteroidsAtStart;
@@ -20,6 +24,7 @@ namespace Project.Managers
 
         public void GameStart()
         {
+            scorer.AddLife(livesOnStart);
             deathGatherer.GameInit(asteroidsAtStart);
             GameActive = true;
         }

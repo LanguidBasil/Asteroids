@@ -2,16 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+using Project.Input;
 
 namespace Project.Managers
 {
     public class UI : MonoBehaviour
     {
         [SerializeField]
+        private EventSystem eventSystem;
+        [SerializeField]
         private GameFlow gameFlow;
         [SerializeField]
         private Scorer scorer;
         [SerializeField]
+        private PlayerMovementInput pInput;
+        [SerializeField]
+        [Space(8)]
         private PlayerInput input;
         [SerializeField]
         private string keybordControlSchemeName;
@@ -34,7 +42,7 @@ namespace Project.Managers
         [SerializeField]
         private Text scoreNumber;
         [SerializeField]
-        private Text lifesNumber;
+        private Text livesNumber;
 
         const string keyboard = "KeyB";
         const string keyboardAndMouse = "KeyB & Mouse";
@@ -42,7 +50,14 @@ namespace Project.Managers
         private void Awake()
         {
             scorer.OnScoreChanged += (object sender, EventArgs e) => { scoreNumber.text = scorer.Score.ToString(); };
-            scorer.OnLifeChanged += (object sender, EventArgs e) => { lifesNumber.text = scorer.Lifes.ToString(); };
+            scorer.OnLivesChanged += (object sender, EventArgs e) => { livesNumber.text = scorer.Lives.ToString(); };
+
+            pInput.Menu += () =>
+            {
+                SwitchActionMap(uiActionMapName);
+                menu.SetActive(true);
+                gameFlow.GamePause();
+            };
         }
 
         private void Start()
