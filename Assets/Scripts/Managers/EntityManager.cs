@@ -22,18 +22,19 @@ namespace Project.Managers
         [SerializeField]
         private ControllerSpawner playerSpawner;
 
+        private Spawner[] spawners;
+
         private void Awake()
         {
+            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner };
+
             void f(object sender, SpawnArgs args)
             {
                 args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage;
             }
 
-            mediumAsteroidSpawner.OnSpawn += f;
-            bigAsteroidSpawner.OnSpawn += f;
-            mediumAsteroidSpawner.OnSpawn += f;
-            smallAsteroidSpawner.OnSpawn += f;
-            playerSpawner.OnSpawn += f;
+            foreach (var spawner in spawners)
+                spawner.OnSpawn += f;
         }
 
         private void DeathMessage(object sender, DeathArgs args)
@@ -83,6 +84,9 @@ namespace Project.Managers
 
         public void GameInit(int bigAsteroidNumber)
         {
+            foreach (var spawner in spawners)
+                spawner.KillAll();
+
             playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
             SpawnAsteroidOffCamera(AsteroidType.Big, bigAsteroidNumber);
         }
