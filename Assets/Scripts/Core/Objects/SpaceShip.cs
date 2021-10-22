@@ -24,7 +24,7 @@ namespace Project.Core.Objects
 
         protected void Start()
         {
-            input.Fire += () => { myGun.Fire(); };
+            input.Fire += () => { myGun.Spawn(); };
         }
 
         protected virtual void Update()
