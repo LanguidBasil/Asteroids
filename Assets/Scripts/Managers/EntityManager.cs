@@ -25,6 +25,8 @@ namespace Project.Managers
         private ControllerSpawner playerSpawner;
 
         private Spawner[] spawners;
+        private int aliveSpaceObjects;
+        private int asteroidsOnLastRoundStart;
 
         private void Awake()
         {
@@ -32,6 +34,7 @@ namespace Project.Managers
 
             void f(object sender, SpawnArgs args)
             {
+                aliveSpaceObjects++;
                 args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage;
             }
 
@@ -41,11 +44,18 @@ namespace Project.Managers
 
         private void DeathMessage(object sender, DeathArgs args)
         {
+            aliveSpaceObjects--;
             scorer.AddScore(args.SO.XP);
 
             if (args.Sender.name == playerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);
             DeathSpawnAsteroids(args.Sender.GetComponent<Asteroid>(), args);
+
+            if (aliveSpaceObjects == 1)
+            {
+                asteroidsOnLastRoundStart++;
+                SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
+            }
         }
 
         private void DeathSpawnPlayer(SpaceShip player, DeathArgs args)
@@ -84,11 +94,13 @@ namespace Project.Managers
 
         public void GameInit(int bigAsteroidNumber)
         {
+            asteroidsOnLastRoundStart = bigAsteroidNumber;
+
             foreach (var spawner in spawners)
                 spawner.KillAll();
 
             playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
-            SpawnAsteroidOffCamera(AsteroidType.Big, bigAsteroidNumber);
+            SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
         }
 
         private void SpawnAsteroidOffCamera(AsteroidType asteroid, int number)
