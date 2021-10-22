@@ -9,6 +9,8 @@ namespace Project.Managers
     public class EntityManager : MonoBehaviour
     {
         [SerializeField]
+        private string playerName;
+        [SerializeField]
         private Scorer scorer;
         [Space(8)]
         [SerializeField]
@@ -41,15 +43,13 @@ namespace Project.Managers
         {
             scorer.AddScore(args.SO.XP);
 
-            DeathSpawnPlayer(sender as SpaceShip, args);
-            DeathSpawnAsteroids(sender as Asteroid, args);
+            if (args.Sender.name == playerName)
+                DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);
+            DeathSpawnAsteroids(args.Sender.GetComponent<Asteroid>(), args);
         }
 
         private void DeathSpawnPlayer(SpaceShip player, DeathArgs args)
         {
-            if (player == null)
-                return;
-
             scorer.AddLife(-1);
             if (scorer.Lives > 0)
                 playerSpawner.Spawn(Vector3.zero, Quaternion.identity);

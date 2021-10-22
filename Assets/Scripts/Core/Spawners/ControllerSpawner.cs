@@ -11,7 +11,7 @@ namespace Project.Core.Spawners
         [SerializeField]
         private GameObject input;
 
-        public new event EventHandler<SpawnArgs> OnSpawn;
+        public override event EventHandler<SpawnArgs> OnSpawn;
 
         public override bool Spawn(Vector3 position, Quaternion rotation)
         {

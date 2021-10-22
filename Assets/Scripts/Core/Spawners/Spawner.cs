@@ -13,7 +13,7 @@ namespace Project.Core.Spawners
         [Tooltip("Max number of simultaneously active objects in scene. \nFor performance keep as low as possible")]
         protected int maxCount;
 
-        public event EventHandler<SpawnArgs> OnSpawn;
+        public virtual event EventHandler<SpawnArgs> OnSpawn;
 
         protected GameObjectPool pool;
 
