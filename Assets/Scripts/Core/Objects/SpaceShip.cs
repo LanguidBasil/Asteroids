@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 using Project.Core.Spawners;
@@ -14,17 +15,21 @@ namespace Project.Core.Objects
         private IMovementInput input;
 
         private Vector2 direction;
+        private Action gunfire;
 
         protected override void OnEnable()
         {
             base.OnEnable();
 
+            gunfire = new Action( () => { myGun.Spawn(); } );
+            input.Fire += gunfire;
+
             rb2d.velocity = Vector2.zero;
         }
 
-        protected void Start()
+        protected virtual void OnDisable()
         {
-            input.Fire += () => { myGun.Spawn(); };
+            input.Fire -= gunfire;
         }
 
         protected virtual void Update()
