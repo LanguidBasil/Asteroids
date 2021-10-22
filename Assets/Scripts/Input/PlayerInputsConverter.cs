@@ -35,17 +35,17 @@ namespace Project.Input
         {
             if (player != null)
             {
-                Vector2 directionToMouse = ScreenPositionToDirection(player.transform.position, input.Mouse, new Vector2(camera.pixelWidth, camera.pixelHeight));
+                Vector2 directionToMouse = ScreenPositionToDirection(camera.WorldToScreenPoint(player.transform.position), input.Mouse);
                 float angleBetweenLookAndMouse = Vector2.SignedAngle(Trigonometry.UnityDegreeToVector2(player.transform.eulerAngles.z), directionToMouse);
 
                 Move = new Vector2(-Mathf.Sign(angleBetweenLookAndMouse), input.Move.y);
             }
         }
 
-        private Vector2 ScreenPositionToDirection(Vector2 from, Vector2 screenPosition, Vector2 cameraSizes)
+        private Vector2 ScreenPositionToDirection(Vector2 screenFromPosition, Vector2 screenToPosition)
         {
-            return new Vector2(screenPosition.x - cameraSizes.x / 2 - from.x,
-                               screenPosition.y - cameraSizes.y / 2 - from.y).normalized;
+            return new Vector2(screenToPosition.x - screenFromPosition.x,
+                               screenToPosition.y - screenFromPosition.y).normalized;
         }
     }
 }
