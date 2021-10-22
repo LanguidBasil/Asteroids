@@ -16,6 +16,14 @@ namespace Project.Core.Objects
         {
             base.OnEnable();
 
+            if (OnHealthDecrease != null)
+                foreach (var d in OnHealthDecrease.GetInvocationList())
+                    OnHealthDecrease -= (EventHandler)d;
+
+            if (OnDestroy != null)
+                foreach (var d in OnDestroy.GetInvocationList())
+                    OnDestroy -= (EventHandler<DeathArgs>)d;
+
             invincibilityTimer = Time.time + SO.InvincibiltyTime;
         }
 
