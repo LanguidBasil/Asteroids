@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AsteroidBig
   m_EditorClassIdentifier: 
   SceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
-  Speed: 2
+  Speed: 3
   DamageOnCollide: 1
   OnExitCameraBounds: 20
   InvincibiltyTime: 0

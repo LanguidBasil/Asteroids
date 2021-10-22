@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1738850740}
+    - target: {fileID: 1853531746, guid: 14c9b12407326524f855876ada0e709b, type: 3}
+      propertyPath: maxCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3810669669355650121, guid: 14c9b12407326524f855876ada0e709b, type: 3}
       propertyPath: m_RootOrder
       value: 3
