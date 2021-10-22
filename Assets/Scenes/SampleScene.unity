@@ -447,10 +447,6 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1738850740}
-    - target: {fileID: 1853531746, guid: 14c9b12407326524f855876ada0e709b, type: 3}
-      propertyPath: maxCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3810669669355650121, guid: 14c9b12407326524f855876ada0e709b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -512,10 +508,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 641176462, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
-      propertyPath: m_UIInputModule
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 641176465, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_FirstSelected
       value: 
@@ -534,15 +526,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16921377
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2517245
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.402056
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -601,10 +593,6 @@ PrefabInstance:
       propertyPath: pInput
       value: 
       objectReference: {fileID: 641176463}
-    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-      propertyPath: eventSystem
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: livesNumber
       value: 
@@ -668,10 +656,6 @@ PrefabInstance:
     - target: {fileID: 6588074735753130450, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_Name
       value: '[Managers]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-      propertyPath: asteroidsAtStart
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: playerSpawner
