@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SceneInfo
   m_EditorClassIdentifier: 
   CameraBoundsGameObjectName: Camera Bounds
-  CameraBoundsExtents: {x: 18.5, y: 10.5}
+  CameraBoundsExtents: {x: 17.75, y: 10}

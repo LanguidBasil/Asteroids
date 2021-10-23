@@ -12,13 +12,16 @@ namespace Project.Core.Objects
         {
             base.OnEnable();
 
+            lastFramePosition = transform.position;
             flewDistance = 0;
-            screenWidth = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.scaledPixelWidth * 2, 0)).x;
+            screenWidth = SO.SceneInfo.CameraBoundsExtents.x * 2;
         }
 
         private void Update()
         {
-            flewDistance += Vector2.Distance(transform.position, lastFramePosition);
+            float deltaMove = Vector2.Distance(transform.position, lastFramePosition);
+            if (deltaMove < SO.SceneInfo.CameraBoundsExtents.y)
+                flewDistance += deltaMove;
 
             if (flewDistance > screenWidth)
                 gameObject.SetActive(false);
