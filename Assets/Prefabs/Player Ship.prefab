@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d26dbb285ad7b04f9a1c305d9ee8a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SO: {fileID: 11400000, guid: 989a0aa8bc1642842a933cb0a3933d35, type: 2}
+  SO: {fileID: 11400000, guid: 4e11427a5afcc1740b47f97410786c49, type: 2}
   myGun: {fileID: 602586239}
 --- !u!114 &602586239
 MonoBehaviour:

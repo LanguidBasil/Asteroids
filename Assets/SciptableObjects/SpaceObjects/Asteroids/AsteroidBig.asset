@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3afa4088f420d41b8727e0bb700754, type: 3}
+  m_Script: {fileID: 11500000, guid: 833d2c68dc769a44dae5c71226d4fbff, type: 3}
   m_Name: AsteroidBig
   m_EditorClassIdentifier: 
   SceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
@@ -19,5 +19,3 @@ MonoBehaviour:
   InvincibiltyTime: 0
   StartingHealth: 1
   XP: 20
-  MaxSpeed: 0
-  RotationSpeed: 0
