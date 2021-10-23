@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Project.Core.Conf;
 using Project.Core.Spawners;
 using Project.Core.Objects;
 
@@ -20,8 +21,9 @@ namespace Project.Visuals
         private void Awake()
         {
             playerSpawner.OnSpawn += (object sender, SpawnArgs args) => 
-                                    { 
-                                        blinkingEndTime = Time.time + args.SpawnedObject.GetComponent<SpaceShip>().SO.InvincibiltyTime;
+                                    {
+                                        var so = (SpaceShipSO)args.SpawnedObject.GetComponent<SpaceShip>().SO;
+                                        blinkingEndTime = Time.time + so.InvincibiltyTime;
                                         playerRenderer = args.SpawnedObject.GetComponent<Renderer>();
                                     };
         }

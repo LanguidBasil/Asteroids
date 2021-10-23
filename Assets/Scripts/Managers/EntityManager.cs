@@ -45,7 +45,10 @@ namespace Project.Managers
         private void DeathMessage(object sender, DeathArgs args)
         {
             aliveSpaceObjects--;
-            scorer.AddScore(args.SO.XP);
+
+            var so = args.SO as DestroyableObjectSO;
+            if (so != null)
+                scorer.AddScore(so.XP);
 
             if (args.Sender.name == playerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);

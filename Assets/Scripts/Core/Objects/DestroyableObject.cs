@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using Project.Core.Conf;
+
 namespace Project.Core.Objects
 {
     public class DestroyableObject : SpaceObject
@@ -24,7 +26,7 @@ namespace Project.Core.Objects
                 foreach (var d in OnDestroy.GetInvocationList())
                     OnDestroy -= (EventHandler<DeathArgs>)d;
 
-            invincibilityTimer = Time.time + SO.InvincibiltyTime;
+            invincibilityTimer = Time.time + ((DestroyableObjectSO)SO).InvincibiltyTime;
         }
 
         public void DecreaseHealth(int amount)

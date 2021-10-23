@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+using Project.Core.Conf;
 using Project.Core.Spawners;
 using Project.Input;
 using Project.Tools;
@@ -34,7 +35,7 @@ namespace Project.Core.Objects
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -input.Move.x * SO.RotationSpeed));
+            transform.Rotate(new Vector3(0, 0, -input.Move.x * ((SpaceShipSO)SO).RotationSpeed));
 
             if (input.Move.y == 1)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
@@ -42,7 +43,7 @@ namespace Project.Core.Objects
 
         protected void FixedUpdate()
         {
-            if (input.Move.y == 1 && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < SO.MaxSpeed)
+            if (input.Move.y == 1 && rb2d.velocity.x * rb2d.velocity.x + rb2d.velocity.y * rb2d.velocity.y < ((SpaceShipSO)SO).MaxSpeed)
                 rb2d.AddForce(SO.Speed * 100 * Time.deltaTime * direction);
         }
         
