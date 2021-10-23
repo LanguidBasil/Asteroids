@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using Project.Core.Conf;
+using Project.Core.Conf.SO;
 using Project.Tools;
 
 namespace Project.Core.Objects

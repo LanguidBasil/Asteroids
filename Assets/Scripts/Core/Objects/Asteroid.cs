@@ -1,4 +1,4 @@
-using Project.Core.Conf;
+using Project.Core.Conf.SO;
 
 namespace Project.Core.Objects
 {

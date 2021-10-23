@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-using Project.Core.Conf;
+using Project.Core.Conf.SO;
 
 namespace Project.Core.Objects
 {

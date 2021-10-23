@@ -3,6 +3,7 @@ using UnityEngine;
 using Project.Core.Objects;
 using Project.Core.Spawners;
 using Project.Core.Conf;
+using Project.Core.Conf.SO;
 
 namespace Project.Managers
 {

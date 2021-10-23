@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Core.Conf
+namespace Project.Core.Conf.SO
 {
     [CreateAssetMenu(fileName = "New Destroyable Object", menuName = "Project / Core / Destroyable Object")]
     public class DestroyableObjectSO : SpaceObjectSO

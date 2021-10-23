@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Core.Conf
+namespace Project.Core.Conf.SO
 {
     [CreateAssetMenu(fileName = "New Scene Info", menuName = "Project / Core / Scene Info")]
     public class SceneInfoSO : ScriptableObject

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Core.Conf
+namespace Project.Core.Conf.SO
 {
     [CreateAssetMenu(fileName = "New Space Object", menuName = "Project / Core / Space Object")]
     public class SpaceObjectSO : ScriptableObject

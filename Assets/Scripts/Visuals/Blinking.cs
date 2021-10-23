@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using Project.Core.Conf;
+using Project.Core.Conf.SO;
 using Project.Core.Spawners;
 using Project.Core.Objects;
 
