@@ -698,6 +698,10 @@ PrefabInstance:
       value: '[Managers]'
       objectReference: {fileID: 0}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: ufoSpawner
+      value: 
+      objectReference: {fileID: 1348409154}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: playerSpawner
       value: 
       objectReference: {fileID: 1853531747}
