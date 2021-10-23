@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 44573011}
+  - component: {fileID: 2294832169427695887}
   m_Layer: 0
-  m_Name: Bullet Spawn Position
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +31,22 @@ Transform:
   m_Father: {fileID: 7972412817711538835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2294832169427695887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44573010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80054d29ecea84baadad534900cca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 619730769680535048, guid: b1ae04358837a9449a6d898708a8f796, type: 3}
+  maxCount: 10
+  reloadTime: 0.33
+  bulletSpawn: {fileID: 44573011}
 --- !u!1 &7972412817711538845
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +60,6 @@ GameObject:
   - component: {fileID: 7972412817711538833}
   - component: {fileID: 4444079047125943398}
   - component: {fileID: 7972412817711538834}
-  - component: {fileID: 602586239}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Untagged
@@ -178,20 +194,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 4e11427a5afcc1740b47f97410786c49, type: 2}
-  myGun: {fileID: 602586239}
---- !u!114 &602586239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7972412817711538845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a80054d29ecea84baadad534900cca4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 619730769680535048, guid: b1ae04358837a9449a6d898708a8f796, type: 3}
-  maxCount: 10
-  reloadTime: 0.33
-  bulletSpawn: {fileID: 44573011}
+  myGun: {fileID: 2294832169427695887}
+  rotationSpinsGun: 0

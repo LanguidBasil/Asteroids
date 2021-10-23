@@ -166,9 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b34de95c496d394195d3fbe1abbe265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ufoSpawner: {fileID: 0}
-  spawnTimeAfterKill: 0
-  spawnHeightDelta: 0
+  sceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
+  ufoSpawner: {fileID: 1348409154}
+  playerSpawner: {fileID: 1853531747}
+  spawnTimeAfterKill: 1
+  spawnHeightDelta: 8
 --- !u!114 &251773995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3810669669698037184, guid: 14c9b12407326524f855876ada0e709b, type: 3}
@@ -788,6 +790,10 @@ PrefabInstance:
     - target: {fileID: 6588074735753130450, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_Name
       value: '[Managers]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: asteroidsAtStart
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: playerSpawner

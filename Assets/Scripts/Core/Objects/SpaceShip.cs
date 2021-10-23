@@ -12,6 +12,9 @@ namespace Project.Core.Objects
     {
         [SerializeField]
         private Gun myGun;
+        [Tooltip("Is rotation spinning space ship or it's gun?")]
+        [SerializeField]
+        private bool rotationSpinsGun;
 
         private IMovementInput input;
 
@@ -35,7 +38,11 @@ namespace Project.Core.Objects
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -input.Move.x * ((SpaceShipSO)SO).RotationSpeed));
+            Vector3 rotation = new Vector3(0, 0, -input.Move.x * ((SpaceShipSO)SO).RotationSpeed);
+            if (rotationSpinsGun)
+                myGun.transform.Rotate(rotation);
+            else
+                transform.Rotate(rotation);
 
             if (input.Move.y == 1)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
