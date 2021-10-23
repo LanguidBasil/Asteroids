@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 namespace Project.Input
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerMovementInput : MonoBehaviour, IMovementInput
+    public class PlayerInputs : MonoBehaviour, IMovementInput
     {
-        public Vector2 Look { get; private set; }
+        public Vector2 Mouse { get; private set; }
 
         public Vector2 Move { get; private set; }
 
@@ -17,7 +17,7 @@ namespace Project.Input
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            Look = context.ReadValue<Vector2>();
+            Mouse = context.ReadValue<Vector2>();
         }
 
         public void OnMove(InputAction.CallbackContext context)

@@ -3,11 +3,14 @@ using UnityEngine;
 using Project.Core.Objects;
 using Project.Core.Spawners;
 using Project.Core.Conf;
+using Project.Core.Conf.SO;
 
 namespace Project.Managers
 {
     public class EntityManager : MonoBehaviour
     {
+        [SerializeField]
+        private string playerName;
         [SerializeField]
         private Scorer scorer;
         [Space(8)]
@@ -22,46 +25,59 @@ namespace Project.Managers
         [SerializeField]
         private ControllerSpawner playerSpawner;
 
+        private Spawner[] spawners;
+        private int aliveSpaceObjects;
+        private int asteroidsOnLastRoundStart;
+
         private void Awake()
         {
+            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner };
+
             void f(object sender, SpawnArgs args)
             {
+                aliveSpaceObjects++;
                 args.SpawnedObject.GetComponent<DestroyableObject>().OnDestroy += DeathMessage;
             }
 
-            mediumAsteroidSpawner.OnSpawn += f;
-            bigAsteroidSpawner.OnSpawn += f;
-            mediumAsteroidSpawner.OnSpawn += f;
-            smallAsteroidSpawner.OnSpawn += f;
-            playerSpawner.OnSpawn += f;
+            foreach (var spawner in spawners)
+                spawner.OnSpawn += f;
         }
 
         private void DeathMessage(object sender, DeathArgs args)
         {
-            scorer.AddScore(args.SO.XP);
+            aliveSpaceObjects--;
 
-            DeathSpawnPlayer(sender as SpaceShip, args);
-            DeathSpawnAsteroids(sender as Asteroid, args);
+            var so = args.SO as DestroyableObjectSO;
+            if (so != null)
+                scorer.AddScore(so.XP);
+
+            if (args.Sender.name == playerName)
+                DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);
+            DeathSpawnAsteroids(args.Sender.GetComponent<DestroyableObject>(), args);
+
+            if (aliveSpaceObjects == 1)
+            {
+                asteroidsOnLastRoundStart++;
+                SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
+            }
         }
 
         private void DeathSpawnPlayer(SpaceShip player, DeathArgs args)
         {
-            if (player == null)
-                return;
-
             scorer.AddLife(-1);
             if (scorer.Lives > 0)
                 playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
         }
 
-        private void DeathSpawnAsteroids(Asteroid asteroid, DeathArgs args)
+        private void DeathSpawnAsteroids(DestroyableObject asteroid, DeathArgs args)
         {
-            if (asteroid == null)
+            if (asteroid == null || asteroid.SO as AsteroidSO == null)
                 return;
+            AsteroidSplitInfoSO split = ((AsteroidSO)asteroid.SO).Split;
 
-            float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
+            float angleStart = args.Sender.transform.eulerAngles.z - split.AngleBetweenAsteroids * (split.AsteroidsNumber - 1) / 2;
             Spawner spawner = null;
-            switch (asteroid.Split.AsteroidToSpawn)
+            switch (split.AsteroidToSpawn)
             {
                 case AsteroidType.Big:
                     spawner = bigAsteroidSpawner;
@@ -77,14 +93,19 @@ namespace Project.Managers
                     break;
             }
 
-            for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
-                spawner?.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
+            for (int i = 0; i < split.AsteroidsNumber; i++)
+                spawner?.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * split.AngleBetweenAsteroids)));
         }
 
         public void GameInit(int bigAsteroidNumber)
         {
+            asteroidsOnLastRoundStart = bigAsteroidNumber;
+
+            foreach (var spawner in spawners)
+                spawner.KillAll();
+
             playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
-            SpawnAsteroidOffCamera(AsteroidType.Big, bigAsteroidNumber);
+            SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
         }
 
         private void SpawnAsteroidOffCamera(AsteroidType asteroid, int number)

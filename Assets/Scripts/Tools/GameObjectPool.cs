@@ -13,10 +13,7 @@ namespace Project.Tools
             this.pool = new GameObject[maxSize];
 
             for (int i = 0; i < maxSize; i++)
-            {
                 pool[i] = Object.Instantiate(prototype);
-                pool[i].SetActive(false);
-            }
         }
 
         public GameObject Get()

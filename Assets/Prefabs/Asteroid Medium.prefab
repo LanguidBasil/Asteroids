@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 2666091036954276868}
   - component: {fileID: 2666091036954276873}
   - component: {fileID: 1095281991709515947}
-  - component: {fileID: 2391108368157091906}
+  - component: {fileID: 3725667399025132217}
   m_Layer: 6
   m_Name: Asteroid Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2666091036954276875
 Transform:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2391108368157091906
+--- !u!114 &3725667399025132217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,8 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2666091036954276869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb091c4176e5504b846363f6a0e30a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9da87d63862889a4a8fb680d60480946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SO: {fileID: 11400000, guid: 1a110b299a658374c994fa5ca6c92e41, type: 2}
-  Split: {fileID: 11400000, guid: ac47c8c73a8a2e647a1a2c186f97d337, type: 2}
+  SO: {fileID: 11400000, guid: cf01a1c50cc6d4d419cb8874522706ea, type: 2}

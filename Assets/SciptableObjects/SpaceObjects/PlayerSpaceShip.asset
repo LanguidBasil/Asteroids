@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3afa4088f420d41b8727e0bb700754, type: 3}
+  m_Script: {fileID: 11500000, guid: b726ca224aa0cf44ab68b1312b91dfdd, type: 3}
   m_Name: PlayerSpaceShip
   m_EditorClassIdentifier: 
   SceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
-  Speed: 1
+  Speed: 2
   DamageOnCollide: 0
   OnExitCameraBounds: 20
   InvincibiltyTime: 3
   StartingHealth: 1
   XP: 0
-  MaxSpeed: 1.5
+  MaxSpeed: 3.5
   RotationSpeed: 1

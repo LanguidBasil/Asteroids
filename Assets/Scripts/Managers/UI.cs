@@ -17,7 +17,7 @@ namespace Project.Managers
         [SerializeField]
         private Scorer scorer;
         [SerializeField]
-        private PlayerMovementInput pInput;
+        private PlayerInputs pInput;
         [SerializeField]
         [Space(8)]
         private PlayerInput input;

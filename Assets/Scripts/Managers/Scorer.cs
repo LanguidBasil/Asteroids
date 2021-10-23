@@ -22,5 +22,17 @@ namespace Project.Managers
             Lives += amount;
             OnLivesChanged?.Invoke(this, null);
         }
+
+        /// <summary>
+        /// Assigns 0 to Score and Lives
+        /// </summary>
+        public void Clear()
+        {
+            Score = 0;
+            OnScoreChanged?.Invoke(this, null);
+
+            Lives = 0;
+            OnLivesChanged?.Invoke(this, null);
+        }
     }
 }

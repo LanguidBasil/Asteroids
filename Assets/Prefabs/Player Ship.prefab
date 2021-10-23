@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7972412817711538835
 Transform:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7972412817711538845}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d26dbb285ad7b04f9a1c305d9ee8a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SO: {fileID: 11400000, guid: 989a0aa8bc1642842a933cb0a3933d35, type: 2}
+  SO: {fileID: 11400000, guid: 4e11427a5afcc1740b47f97410786c49, type: 2}
   myGun: {fileID: 602586239}
 --- !u!114 &602586239
 MonoBehaviour:
@@ -192,6 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 619730769680535048, guid: b1ae04358837a9449a6d898708a8f796, type: 3}
-  maxCount: 5
-  bulletSpawnPosition: {fileID: 44573011}
-  reloadTime: 1
+  maxCount: 10
+  reloadTime: 0.33
+  bulletSpawn: {fileID: 44573011}
