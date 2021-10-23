@@ -539,6 +539,14 @@ PrefabInstance:
       propertyPath: playerSpawner
       value: 
       objectReference: {fileID: 1853531747}
+    - target: {fileID: 2983388114333667886, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+      propertyPath: unityPlayerInput
+      value: 
+      objectReference: {fileID: 641176462}
+    - target: {fileID: 2983388114333667886, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+      propertyPath: keyboardAndMouseControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 4254761363548229190, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
       propertyPath: m_RootOrder
       value: 1

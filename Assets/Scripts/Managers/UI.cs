@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 using Project.Input;
 
@@ -11,16 +10,14 @@ namespace Project.Managers
     public class UI : MonoBehaviour
     {
         [SerializeField]
-        private EventSystem eventSystem;
-        [SerializeField]
         private GameFlow gameFlow;
         [SerializeField]
         private Scorer scorer;
         [SerializeField]
-        private PlayerInputs pInput;
+        private PlayerInputs input;
         [SerializeField]
         [Space(8)]
-        private PlayerInput input;
+        private PlayerInput unityPlayerInput;
         [SerializeField]
         private string keybordControlSchemeName;
         [SerializeField]
@@ -52,7 +49,7 @@ namespace Project.Managers
             scorer.OnScoreChanged += (object sender, EventArgs e) => { scoreNumber.text = scorer.Score.ToString(); };
             scorer.OnLivesChanged += (object sender, EventArgs e) => { livesNumber.text = scorer.Lives.ToString(); };
 
-            pInput.Menu += () =>
+            input.Menu += () =>
             {
                 SwitchActionMap(uiActionMapName);
                 menu.SetActive(true);
@@ -95,13 +92,13 @@ namespace Project.Managers
 
         private void SwitchActionMap(string actionMapName)
         {
-            input.SwitchCurrentActionMap(actionMapName);
+            unityPlayerInput.SwitchCurrentActionMap(actionMapName);
         }
 
         private void SwitchControlScheme(string dysplayedText, string controlSchemeName)
         {
             controllsToggle.GetComponentInChildren<Text>().text = dysplayedText;
-            input.SwitchCurrentControlScheme(controlSchemeName);
+            unityPlayerInput.SwitchCurrentControlScheme(controlSchemeName);
         }
 
         public void Quit()
