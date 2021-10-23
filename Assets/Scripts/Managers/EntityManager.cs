@@ -53,7 +53,7 @@ namespace Project.Managers
 
             if (args.Sender.name == playerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);
-            DeathSpawnAsteroids(args.Sender.GetComponent<Asteroid>(), args);
+            DeathSpawnAsteroids(args.Sender.GetComponent<DestroyableObject>(), args);
 
             if (aliveSpaceObjects == 1)
             {
@@ -69,14 +69,15 @@ namespace Project.Managers
                 playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
         }
 
-        private void DeathSpawnAsteroids(Asteroid asteroid, DeathArgs args)
+        private void DeathSpawnAsteroids(DestroyableObject asteroid, DeathArgs args)
         {
-            if (asteroid == null)
+            if (asteroid == null || asteroid.SO as AsteroidSO == null)
                 return;
+            AsteroidSplitInfoSO split = ((AsteroidSO)asteroid.SO).Split;
 
-            float angleStart = args.Sender.transform.eulerAngles.z - asteroid.Split.AngleBetweenAsteroids * (asteroid.Split.AsteroidsNumber - 1) / 2;
+            float angleStart = args.Sender.transform.eulerAngles.z - split.AngleBetweenAsteroids * (split.AsteroidsNumber - 1) / 2;
             Spawner spawner = null;
-            switch (asteroid.Split.AsteroidToSpawn)
+            switch (split.AsteroidToSpawn)
             {
                 case AsteroidType.Big:
                     spawner = bigAsteroidSpawner;
@@ -92,8 +93,8 @@ namespace Project.Managers
                     break;
             }
 
-            for (int i = 0; i < asteroid.Split.AsteroidsNumber; i++)
-                spawner?.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * asteroid.Split.AngleBetweenAsteroids)));
+            for (int i = 0; i < split.AsteroidsNumber; i++)
+                spawner?.Spawn(args.Sender.transform.position, Quaternion.Euler(0, 0, angleStart + (i * split.AngleBetweenAsteroids)));
         }
 
         public void GameInit(int bigAsteroidNumber)
