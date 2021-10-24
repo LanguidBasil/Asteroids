@@ -9,7 +9,7 @@ namespace Project.Visuals
     public class Blinking : MonoBehaviour
     {
         [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private Spawner playerSpawner;
         [Tooltip("Intervals in seconds between changing states")]
         [SerializeField]
         private float intervals;

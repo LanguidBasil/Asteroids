@@ -18,9 +18,9 @@ namespace Project.Managers
         [SerializeField]
         private SceneInfoSO sceneInfo;
         [SerializeField]
-        private ControllerSpawner ufoSpawner;
+        private Spawner ufoSpawner;
         [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private Spawner playerSpawner;
         [SerializeField]
         private float spawnTimeAfterKill;
         [SerializeField]
@@ -31,6 +31,8 @@ namespace Project.Managers
 
         private void Awake()
         {
+            ufoSpawner.SetInputs(this);
+
             playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.transform; };
             ufoSpawner.OnSpawn += (object sender, SpawnArgs args) => 
                                     {

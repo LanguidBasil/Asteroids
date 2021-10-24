@@ -23,9 +23,9 @@ namespace Project.Managers
         [SerializeField]
         private Spawner smallAsteroidSpawner;
         [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private Spawner playerSpawner;
         [SerializeField]
-        private ControllerSpawner ufoSpawner;
+        private Spawner ufoSpawner;
 
         private Spawner[] spawners;
         private int aliveSpaceObjects;

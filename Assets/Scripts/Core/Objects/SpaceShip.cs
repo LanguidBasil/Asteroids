@@ -22,6 +22,9 @@ namespace Project.Core.Objects
         {
             base.OnEnable();
 
+            if (input == null)
+                Debug.Log($"Input is not set on {gameObject.name}");
+
             gunfire = new Action( () => { myGun.Spawn(); } );
             input.Fire += gunfire;
 
