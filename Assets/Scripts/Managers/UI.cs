@@ -97,6 +97,7 @@ namespace Project.Managers
 
         private void SwitchControlScheme(string dysplayedText, string controlSchemeName)
         {
+            input.RethinkControlScheme(controlSchemeName);
             controllsToggle.GetComponentInChildren<Text>().text = dysplayedText;
             unityPlayerInput.SwitchCurrentControlScheme(controlSchemeName);
         }

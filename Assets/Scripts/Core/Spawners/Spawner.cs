@@ -23,7 +23,6 @@ namespace Project.Core.Spawners
         protected virtual void Awake()
         {
             pool = new GameObjectPool(maxCount, prefab);
-            input = null;
         }
 
         /// <returns>
@@ -34,11 +33,11 @@ namespace Project.Core.Spawners
             GameObject gameObj = pool.Get();
             if (gameObj != null)
             {
-                gameObj.transform.SetPositionAndRotation(position, rotation);
-                gameObj.SetActive(true);
                 if (input != null)
                     gameObj.GetComponent<SpaceShip>()?.SetInput(input);
+                gameObj.transform.SetPositionAndRotation(position, rotation);
 
+                gameObj.SetActive(true);
                 OnSpawn?.Invoke(this, new SpawnArgs(gameObj, position, rotation));
                 return true;
             }
@@ -57,7 +56,6 @@ namespace Project.Core.Spawners
 
         public void SetInputs(IMovementInput input)
         {
-            Debug.Log($"Setting input on {gameObject.name}");
             this.input = input;
         }
     }
