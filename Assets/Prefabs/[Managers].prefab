@@ -229,7 +229,7 @@ MonoBehaviour:
   scorer: {fileID: 6588074735092443501}
   deathGatherer: {fileID: 6588074736633478580}
   livesOnStart: 3
-  asteroidsAtStart: 2
+  asteroidsAtStart: 0
 --- !u!1 &6588074736633478582
 GameObject:
   m_ObjectHideFlags: 0

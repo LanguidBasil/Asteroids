@@ -612,6 +612,10 @@ PrefabInstance:
       propertyPath: playerSpawner
       value: 
       objectReference: {fileID: 3810669669882601965}
+    - target: {fileID: 67134933, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawnTimeAfterKill
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: hud
       value: 
@@ -691,10 +695,6 @@ PrefabInstance:
     - target: {fileID: 6588074735753130450, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: m_Name
       value: '[Managers]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
-      propertyPath: asteroidsAtStart
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: ufoSpawner

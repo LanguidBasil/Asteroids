@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 619730769680535048, guid: b1ae04358837a9449a6d898708a8f796, type: 3}
-  maxCount: 10
+  maxCount: 20
   reloadTime: 0.33
   bulletSpawn: {fileID: 44573011}
 --- !u!1 &7972412817711538845
@@ -195,4 +195,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 4e11427a5afcc1740b47f97410786c49, type: 2}
   myGun: {fileID: 2294832169427695887}
-  rotationSpinsGun: 1
