@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &67134931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67134932}
+  - component: {fileID: 67134933}
+  m_Layer: 0
+  m_Name: UFO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67134932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67134931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6588074735753130449}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67134933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67134931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b34de95c496d394195d3fbe1abbe265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneInfo: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
+  ufoSpawner: {fileID: 0}
+  playerSpawner: {fileID: 0}
+  spawnTimeAfterKill: 30
+  spawnHeightDelta: 8
 --- !u!1 &2063900235
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,11 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3725e4cc1d241204bb255eba82622b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
   gameFlow: {fileID: 6588074736362374403}
   scorer: {fileID: 6588074735092443501}
-  pInput: {fileID: 0}
   input: {fileID: 0}
+  unityPlayerInput: {fileID: 0}
   keybordControlSchemeName: Keyboard
   keybordAndMouseControlSchemeName: Keyboard&Mouse
   gameplayActionMapName: Gameplay
@@ -132,6 +179,7 @@ Transform:
   - {fileID: 6588074736633478581}
   - {fileID: 6588074735092443502}
   - {fileID: 2063900236}
+  - {fileID: 67134932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,3 +280,4 @@ MonoBehaviour:
   mediumAsteroidSpawner: {fileID: 0}
   smallAsteroidSpawner: {fileID: 0}
   playerSpawner: {fileID: 0}
+  ufoSpawner: {fileID: 0}
