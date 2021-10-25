@@ -24,7 +24,7 @@ namespace Project.Visuals
                                     {
                                         var so = (SpaceShipSO)args.SpawnedObject.GetComponent<SpaceShip>().SO;
                                         blinkingEndTime = Time.time + so.InvincibiltyTime;
-                                        playerRenderer = args.SpawnedObject.GetComponent<Renderer>();
+                                        playerRenderer = args.SpawnedObject.GetComponentInChildren<Renderer>();
                                     };
         }
 
