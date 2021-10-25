@@ -268,5 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 0ceb1c9173c53904087ab7c4248b8314, type: 2}
+  accelerationDirection: {x: 1, y: 0}
   myGun: {fileID: 2128989109383149739}
   inputSpinsGun: 1

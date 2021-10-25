@@ -10,6 +10,9 @@ namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
+        [Tooltip("Set (0, 0) to set to rotation based direction")]
+        [SerializeField]
+        private Vector2 accelerationDirection;
         [SerializeField]
         private Gun myGun;
         [Tooltip("Moving input rotates spaceship or spin a gun")]
@@ -49,8 +52,15 @@ namespace Project.Core.Objects
             else
                 RotateSpaceShip(((SpaceShipSO)SO).RotationSpeed);
 
-            if (input.Move.y == 1)
-                direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
+            if (accelerationDirection == Vector2.zero)
+            {
+                if (input.Move.y == 1)
+                    direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
+            }
+            else
+            {
+                direction = accelerationDirection;
+            }
         }
 
         protected void FixedUpdate()
