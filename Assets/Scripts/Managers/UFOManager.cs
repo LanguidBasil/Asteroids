@@ -43,7 +43,11 @@ namespace Project.Managers
             ufoSpawner.OnSpawn += (object sender, SpawnArgs args) => 
                                     {
                                         ufo = args.SpawnedObject.GetComponent<SpaceShip>();
-                                        ufo.OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; };
+                                        ufo.OnDestroy += (object sender, DeathArgs args) => 
+                                        { 
+                                            ufoSpawnTimer = Time.time + spawnTimeAfterKill; 
+                                            ufoFireTimer = Mathf.Infinity; 
+                                        };
                                         ufoFireTimer = Time.time + timeBetweenFire;
                                     };
         }

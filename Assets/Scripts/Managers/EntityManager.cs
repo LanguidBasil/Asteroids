@@ -35,7 +35,7 @@ namespace Project.Managers
 
         private void Awake()
         {
-            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner };
+            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner, ufoSpawner };
 
             void f(object sender, SpawnArgs args)
             {
