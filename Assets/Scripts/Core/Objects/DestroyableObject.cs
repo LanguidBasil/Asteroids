@@ -7,6 +7,8 @@ namespace Project.Core.Objects
 {
     public class DestroyableObject : SpaceObject
     {
+        public AudioClip MyAudioClip;
+
         public int Health { get; protected set; }
 
         public event EventHandler OnHealthDecrease;
@@ -38,10 +40,13 @@ namespace Project.Core.Objects
             OnHealthDecrease?.Invoke(this, null);
 
             if (Health < 1)
-            {
-                OnDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
-                gameObject.SetActive(false);
-            }
+                Kill();
+        }
+
+        protected void Kill()
+        {
+            OnDestroy?.Invoke(this, new DeathArgs(SO, gameObject));
+            gameObject.SetActive(false);
         }
     }
 }

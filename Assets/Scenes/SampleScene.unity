@@ -123,6 +123,107 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &36737518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6588074736633478582, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+  m_PrefabInstance: {fileID: 6588074735067693331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &36737519
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36737518}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &251773995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3810669669698037184, guid: 14c9b12407326524f855876ada0e709b, type: 3}
@@ -449,10 +550,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1348409152, guid: 14c9b12407326524f855876ada0e709b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3810669669355650121, guid: 14c9b12407326524f855876ada0e709b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -633,7 +730,11 @@ PrefabInstance:
       objectReference: {fileID: 3810669669882601965}
     - target: {fileID: 67134933, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: timeBetweenFire
-      value: 1.5
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 67134933, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawnTimeAfterKill
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: hud
@@ -719,10 +820,18 @@ PrefabInstance:
       propertyPath: ufoManager
       value: 
       objectReference: {fileID: 1424444524}
+    - target: {fileID: 6588074736362374403, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: asteroidsAtStart
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: ufoSpawner
       value: 
       objectReference: {fileID: 1776695024}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 36737519}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: playerSpawner
       value: 

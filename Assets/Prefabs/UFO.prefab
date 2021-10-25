@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 619730769680535048, guid: 6dcfc79d237fd2c4e8c540b6ef24bb65, type: 3}
   maxCount: 3
+  audioOnSpawn: {fileID: 0}
   reloadTime: 3.5
   bulletSpawn: {fileID: 44573011}
 --- !u!212 &952932995758260752
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO: {fileID: 11400000, guid: 0ceb1c9173c53904087ab7c4248b8314, type: 2}
+  MyAudioClip: {fileID: 8300000, guid: d9a123d34b8f4f24baeae199ed4ecd35, type: 3}
   accelerationDirection: {x: 1, y: 0}
   myGun: {fileID: 2128989109383149739}
   inputSpinsGun: 1

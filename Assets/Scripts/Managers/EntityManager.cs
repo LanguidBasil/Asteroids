@@ -13,6 +13,8 @@ namespace Project.Managers
         private string playerName;
         [SerializeField]
         private Scorer scorer;
+        [SerializeField]
+        private AudioSource audioSource;
         [Space(8)]
         [SerializeField]
         private SceneInfoSO sceneInfo;
@@ -52,6 +54,13 @@ namespace Project.Managers
             var so = args.SO as DestroyableObjectSO;
             if (so != null)
                 scorer.AddScore(so.XP);
+
+            AudioClip clip = args.Sender.GetComponent<DestroyableObject>().MyAudioClip;
+            if (clip)
+            {
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
 
             if (args.Sender.name == playerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);

@@ -14,6 +14,8 @@ namespace Project.Core.Spawners
         [SerializeField]
         [Tooltip("Max number of simultaneously active objects in scene. \nFor performance keep as low as possible")]
         protected int maxCount;
+        [SerializeField]
+        private AudioSource audioOnSpawn;
 
         public virtual event EventHandler<SpawnArgs> OnSpawn;
 
@@ -39,6 +41,9 @@ namespace Project.Core.Spawners
 
                 gameObj.SetActive(true);
                 OnSpawn?.Invoke(this, new SpawnArgs(gameObj, position, rotation));
+
+                if (audioOnSpawn != null)
+                    audioOnSpawn.Play();
                 return true;
             }
 
