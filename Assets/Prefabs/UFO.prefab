@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 619730769680535048, guid: 6dcfc79d237fd2c4e8c540b6ef24bb65, type: 3}
-  maxCount: 1
+  maxCount: 3
   reloadTime: 3.5
   bulletSpawn: {fileID: 44573011}
 --- !u!212 &952932995758260752

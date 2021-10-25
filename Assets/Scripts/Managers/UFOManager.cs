@@ -25,21 +25,26 @@ namespace Project.Managers
         private float spawnTimeAfterKill;
         [SerializeField]
         private float spawnHeightDelta;
+        [SerializeField]
+        private float timeBetweenFire;
 
         private SpaceShip player;
         private SpaceShip ufo;
         private float ufoSpawnTimer;
+        private float ufoFireTimer;
 
         private void Awake()
         {
             ufoSpawner.SetInputs(this);
             ufoSpawnTimer = Mathf.Infinity;
+            ufoFireTimer = Mathf.Infinity;
 
             playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.GetComponent<SpaceShip>(); };
             ufoSpawner.OnSpawn += (object sender, SpawnArgs args) => 
                                     {
                                         ufo = args.SpawnedObject.GetComponent<SpaceShip>();
-                                        ufo.OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; }; 
+                                        ufo.OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; };
+                                        ufoFireTimer = Time.time + timeBetweenFire;
                                     };
         }
 
@@ -49,6 +54,12 @@ namespace Project.Managers
             {
                 ufoSpawner.Spawn(new Vector2(-sceneInfo.CameraBoundsExtents.x, UnityEngine.Random.Range(-spawnHeightDelta, spawnHeightDelta)), Quaternion.identity);
                 ufoSpawnTimer = Mathf.Infinity;
+            }
+
+            if (Time.time > ufoFireTimer)
+            {
+                ufo.MyGun.Spawn();
+                ufoFireTimer = Time.time + timeBetweenFire;
             }
 
             if (ufo == null)

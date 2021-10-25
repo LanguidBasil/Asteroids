@@ -10,7 +10,7 @@ namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
-        [Tooltip("Set (0, 0) to set to rotation based direction")]
+        [Tooltip("Set (0, 0) to set rotation based direction")]
         [SerializeField]
         private Vector2 accelerationDirection;
         [SerializeField]
