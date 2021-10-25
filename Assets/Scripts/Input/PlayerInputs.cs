@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using Project.Core.Objects;
 using Project.Core.Spawners;
 using Project.Tools;
 
@@ -25,7 +26,7 @@ namespace Project.Input
         [SerializeField]
         private string keyboardAndMouseControlSchemeName;
 
-        protected Transform user;
+        protected SpaceShip user;
         protected Vector2 lookPoint;
         protected Vector2 moveBuffer;
         protected bool lookWithMouse;
@@ -33,7 +34,7 @@ namespace Project.Input
         protected void Awake()
         {
             spawner.SetInputs(this);
-            spawner.OnSpawn += (object sender, SpawnArgs args) => { user = args.SpawnedObject.transform; };
+            spawner.OnSpawn += (object sender, SpawnArgs args) => { user = args.SpawnedObject.GetComponent<SpaceShip>(); };
 
             RethinkControlScheme(unityPlayerInput.currentControlScheme);
         }
@@ -45,9 +46,10 @@ namespace Project.Input
 
             if (lookWithMouse)
             {
-                Vector2 directionToMouse = new Vector2(lookPoint.x - user.position.x, lookPoint.y - user.position.y).normalized;
-                float angleBetween = Vector2.SignedAngle(Trigonometry.UnityDegreeToVector2(user.eulerAngles.z), directionToMouse);
+                Vector2 directionToMouse = new Vector2(lookPoint.x - user.transform.position.x, lookPoint.y - user.transform.position.y).normalized;
+                Vector2 myPos = user.InputSpinsGun ? (Vector2)user.MyGun.transform.localPosition : Trigonometry.UnityDegreeToVector2(user.transform.eulerAngles.z);
 
+                float angleBetween = Vector2.SignedAngle(myPos, directionToMouse);
                 Move = new Vector2(-Mathf.Sign(angleBetween), moveBuffer.y);
             }
             else

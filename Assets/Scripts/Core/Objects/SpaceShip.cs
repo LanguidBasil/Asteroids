@@ -10,15 +10,19 @@ namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
-        public Gun myGun;
+        [SerializeField]
+        private Gun myGun;
         [Tooltip("Moving input rotates spaceship or spin a gun")]
-        public bool inputSpinsGun;
+        [SerializeField]
+        private bool inputSpinsGun;
+
+        public Gun MyGun { get => myGun; }
+        public bool InputSpinsGun { get => inputSpinsGun; }
 
         private IMovementInput input;
 
         private Vector2 direction;
         private Action gunfire;
-        private float gunSpinningTimer;
 
         protected override void OnEnable()
         {
@@ -67,10 +71,6 @@ namespace Project.Core.Objects
 
         private void SpinGun(float rotationSpeed)
         {
-            //gunSpinningTimer += Time.time * ;
-            //float x = Mathf.Cos(rotationSpeed * input.Move.x) - myGun.transform.position.x;
-            //float y = Mathf.Sin(rotationSpeed * input.Move.x) - myGun.transform.position.y;
-            //myGun.transform.position += new Vector3(x, y, 0);
             myGun.transform.RotateAround(transform.position, new Vector3(0, 0, -input.Move.x), rotationSpeed * Time.deltaTime * 100);
         }
     }
