@@ -26,44 +26,45 @@ namespace Project.Managers
         [SerializeField]
         private float spawnHeightDelta;
 
-        private Transform player;
+        private SpaceShip player;
+        private SpaceShip ufo;
         private float ufoSpawnTimer;
 
         private void Awake()
         {
             ufoSpawner.SetInputs(this);
+            ufoSpawnTimer = Mathf.Infinity;
 
-            playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.transform; };
+            playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.GetComponent<SpaceShip>(); };
             ufoSpawner.OnSpawn += (object sender, SpawnArgs args) => 
                                     {
-                                        args.SpawnedObject.GetComponent<SpaceShip>().OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; }; 
+                                        ufo = args.SpawnedObject.GetComponent<SpaceShip>();
+                                        ufo.OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; }; 
                                     };
-        }
-
-        private void Start()
-        {
-            ufoSpawnTimer = Time.time + spawnTimeAfterKill;
         }
 
         private void Update()
         {
             if (Time.time > ufoSpawnTimer)
             {
-                ufoSpawner.Spawn(new Vector2(-sceneInfo.CameraBoundsExtents.x, UnityEngine.Random.Range(-spawnHeightDelta, spawnHeightDelta)), Quaternion.Euler(0, 0, 270));
+                ufoSpawner.Spawn(new Vector2(-sceneInfo.CameraBoundsExtents.x, UnityEngine.Random.Range(-spawnHeightDelta, spawnHeightDelta)), Quaternion.identity);
                 ufoSpawnTimer = Mathf.Infinity;
             }
 
-            if (player != null)
-            {
-                Vector2 directionToPlayer = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized;
-                float angleBetweenLookAndMouse = Vector2.SignedAngle(Trigonometry.UnityDegreeToVector2(player.transform.eulerAngles.z), directionToPlayer);
+            if (ufo == null)
+                return;
 
-                Move = new Vector2(-Mathf.Sign(angleBetweenLookAndMouse), 1);
-            }
-            else
-            {
-                Move = Vector2.up;
-            }
+            Vector2 target = player == null ? Vector2.up : (Vector2)player.transform.position;
+
+            Vector2 directionToTarget = new Vector2(target.x - ufo.transform.position.x, target.y - ufo.transform.position.y).normalized;
+            float angleBetween = Vector2.SignedAngle(ufo.MyGun.transform.localPosition, directionToTarget);
+
+            Move = new Vector2(-Mathf.Sign(angleBetween), 1);
+        }
+
+        public void StartTimer()
+        {
+            ufoSpawnTimer = Time.time + spawnTimeAfterKill;
         }
     }
 }
