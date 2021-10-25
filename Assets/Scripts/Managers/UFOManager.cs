@@ -18,50 +18,68 @@ namespace Project.Managers
         [SerializeField]
         private SceneInfoSO sceneInfo;
         [SerializeField]
-        private ControllerSpawner ufoSpawner;
+        private Spawner ufoSpawner;
         [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private Spawner playerSpawner;
         [SerializeField]
         private float spawnTimeAfterKill;
         [SerializeField]
         private float spawnHeightDelta;
+        [SerializeField]
+        private float timeBetweenFire;
 
-        private Transform player;
+        private SpaceShip player;
+        private SpaceShip ufo;
         private float ufoSpawnTimer;
+        private float ufoFireTimer;
 
         private void Awake()
         {
-            playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.transform; };
+            ufoSpawner.SetInputs(this);
+            ufoSpawnTimer = Mathf.Infinity;
+            ufoFireTimer = Mathf.Infinity;
+
+            playerSpawner.OnSpawn += (object sender, SpawnArgs args) => { player = args.SpawnedObject.GetComponent<SpaceShip>(); };
             ufoSpawner.OnSpawn += (object sender, SpawnArgs args) => 
                                     {
-                                        args.SpawnedObject.GetComponent<SpaceShip>().OnDestroy += (object sender, DeathArgs args) => { ufoSpawnTimer = Time.time + spawnTimeAfterKill; }; 
+                                        ufo = args.SpawnedObject.GetComponent<SpaceShip>();
+                                        ufo.OnDestroy += (object sender, DeathArgs args) => 
+                                        { 
+                                            ufoSpawnTimer = Time.time + spawnTimeAfterKill; 
+                                            ufoFireTimer = Mathf.Infinity; 
+                                        };
+                                        ufoFireTimer = Time.time + timeBetweenFire;
                                     };
-        }
-
-        private void Start()
-        {
-            ufoSpawnTimer = Time.time + spawnTimeAfterKill;
         }
 
         private void Update()
         {
             if (Time.time > ufoSpawnTimer)
             {
-                ufoSpawner.Spawn(new Vector2(-sceneInfo.CameraBoundsExtents.x, UnityEngine.Random.Range(-spawnHeightDelta, spawnHeightDelta)), Quaternion.Euler(0, 0, 270));
+                ufoSpawner.Spawn(new Vector2(-sceneInfo.CameraBoundsExtents.x, UnityEngine.Random.Range(-spawnHeightDelta, spawnHeightDelta)), Quaternion.identity);
                 ufoSpawnTimer = Mathf.Infinity;
             }
 
-            if (player != null)
+            if (Time.time > ufoFireTimer)
             {
-                Vector2 directionToPlayer = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized;
-                float angleBetweenLookAndMouse = Vector2.SignedAngle(Trigonometry.UnityDegreeToVector2(player.transform.eulerAngles.z), directionToPlayer);
+                ufo.MyGun.Spawn();
+                ufoFireTimer = Time.time + timeBetweenFire;
+            }
 
-                Move = new Vector2(-Mathf.Sign(angleBetweenLookAndMouse), 1);
-            }
-            else
-            {
-                Move = Vector2.up;
-            }
+            if (ufo == null)
+                return;
+
+            Vector2 target = player == null ? Vector2.up : (Vector2)player.transform.position;
+
+            Vector2 directionToTarget = new Vector2(target.x - ufo.transform.position.x, target.y - ufo.transform.position.y).normalized;
+            float angleBetween = Vector2.SignedAngle(ufo.MyGun.transform.localPosition, directionToTarget);
+
+            Move = new Vector2(-Mathf.Sign(angleBetween), 1);
+        }
+
+        public void StartTimer()
+        {
+            ufoSpawnTimer = Time.time + spawnTimeAfterKill;
         }
     }
 }

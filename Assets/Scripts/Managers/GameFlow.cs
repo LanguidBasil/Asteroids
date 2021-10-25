@@ -8,6 +8,8 @@ namespace Project.Managers
         private Scorer scorer;
         [SerializeField]
         private EntityManager deathGatherer;
+        [SerializeField]
+        private UFOManager ufoManager;
         [Space(8)]
         [SerializeField]
         private int livesOnStart;
@@ -26,6 +28,7 @@ namespace Project.Managers
         {
             scorer.Clear();
             scorer.AddLife(livesOnStart);
+            ufoManager.StartTimer();
             Time.timeScale = 1;
 
             deathGatherer.GameInit(asteroidsAtStart);

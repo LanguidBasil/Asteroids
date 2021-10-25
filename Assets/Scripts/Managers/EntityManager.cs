@@ -13,6 +13,8 @@ namespace Project.Managers
         private string playerName;
         [SerializeField]
         private Scorer scorer;
+        [SerializeField]
+        private AudioSource audioSource;
         [Space(8)]
         [SerializeField]
         private SceneInfoSO sceneInfo;
@@ -23,9 +25,9 @@ namespace Project.Managers
         [SerializeField]
         private Spawner smallAsteroidSpawner;
         [SerializeField]
-        private ControllerSpawner playerSpawner;
+        private Spawner playerSpawner;
         [SerializeField]
-        private ControllerSpawner ufoSpawner;
+        private Spawner ufoSpawner;
 
         private Spawner[] spawners;
         private int aliveSpaceObjects;
@@ -33,7 +35,7 @@ namespace Project.Managers
 
         private void Awake()
         {
-            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner };
+            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner, ufoSpawner };
 
             void f(object sender, SpawnArgs args)
             {
@@ -52,6 +54,13 @@ namespace Project.Managers
             var so = args.SO as DestroyableObjectSO;
             if (so != null)
                 scorer.AddScore(so.XP);
+
+            AudioClip clip = args.Sender.GetComponent<DestroyableObject>().MyAudioClip;
+            if (clip)
+            {
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
 
             if (args.Sender.name == playerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);

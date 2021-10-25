@@ -24,7 +24,7 @@ namespace Project.Core.Objects
                 flewDistance += deltaMove;
 
             if (flewDistance > screenWidth)
-                gameObject.SetActive(false);
+                Kill();
 
             lastFramePosition = transform.position;
         }

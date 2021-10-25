@@ -10,8 +10,17 @@ namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
+        [Tooltip("Set (0, 0) to set rotation based direction")]
+        [SerializeField]
+        private Vector2 accelerationDirection;
         [SerializeField]
         private Gun myGun;
+        [Tooltip("Moving input rotates spaceship or spin a gun")]
+        [SerializeField]
+        private bool inputSpinsGun;
+
+        public Gun MyGun { get => myGun; }
+        public bool InputSpinsGun { get => inputSpinsGun; }
 
         private IMovementInput input;
 
@@ -21,6 +30,9 @@ namespace Project.Core.Objects
         protected override void OnEnable()
         {
             base.OnEnable();
+
+            if (input == null)
+                Debug.LogWarning($"Input is not set on {gameObject.name}");
 
             gunfire = new Action( () => { myGun.Spawn(); } );
             input.Fire += gunfire;
@@ -35,10 +47,20 @@ namespace Project.Core.Objects
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -input.Move.x * ((SpaceShipSO)SO).RotationSpeed));
+            if (inputSpinsGun)
+                SpinGun(((SpaceShipSO)SO).RotationSpeed);
+            else
+                RotateSpaceShip(((SpaceShipSO)SO).RotationSpeed);
 
-            if (input.Move.y == 1)
-                direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
+            if (accelerationDirection == Vector2.zero)
+            {
+                if (input.Move.y == 1)
+                    direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
+            }
+            else
+            {
+                direction = accelerationDirection;
+            }
         }
 
         protected void FixedUpdate()
@@ -50,6 +72,16 @@ namespace Project.Core.Objects
         public void SetInput(IMovementInput input)
         {
             this.input = input;
+        }
+
+        private void RotateSpaceShip(float rotationSpeed)
+        {
+            transform.Rotate(new Vector3(0, 0, -input.Move.x * rotationSpeed));
+        }
+
+        private void SpinGun(float rotationSpeed)
+        {
+            myGun.transform.RotateAround(transform.position, new Vector3(0, 0, -input.Move.x), rotationSpeed * Time.deltaTime * 100);
         }
     }
 }
