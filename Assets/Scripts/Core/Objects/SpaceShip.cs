@@ -10,13 +10,15 @@ namespace Project.Core.Objects
 {
     public class SpaceShip : DestroyableObject
     {
-        [SerializeField]
-        private Gun myGun;
+        public Gun myGun;
+        [Tooltip("Moving input rotates spaceship or spin a gun")]
+        public bool inputSpinsGun;
 
         private IMovementInput input;
 
         private Vector2 direction;
         private Action gunfire;
+        private float gunSpinningTimer;
 
         protected override void OnEnable()
         {
@@ -38,7 +40,10 @@ namespace Project.Core.Objects
 
         protected virtual void Update()
         {
-            transform.Rotate(new Vector3(0, 0, -input.Move.x * ((SpaceShipSO)SO).RotationSpeed));
+            if (inputSpinsGun)
+                SpinGun(((SpaceShipSO)SO).RotationSpeed);
+            else
+                RotateSpaceShip(((SpaceShipSO)SO).RotationSpeed);
 
             if (input.Move.y == 1)
                 direction = Trigonometry.UnityDegreeToVector2(transform.eulerAngles.z);
@@ -53,6 +58,20 @@ namespace Project.Core.Objects
         public void SetInput(IMovementInput input)
         {
             this.input = input;
+        }
+
+        private void RotateSpaceShip(float rotationSpeed)
+        {
+            transform.Rotate(new Vector3(0, 0, -input.Move.x * rotationSpeed));
+        }
+
+        private void SpinGun(float rotationSpeed)
+        {
+            //gunSpinningTimer += Time.time * ;
+            //float x = Mathf.Cos(rotationSpeed * input.Move.x) - myGun.transform.position.x;
+            //float y = Mathf.Sin(rotationSpeed * input.Move.x) - myGun.transform.position.y;
+            //myGun.transform.position += new Vector3(x, y, 0);
+            myGun.transform.RotateAround(transform.position, new Vector3(0, 0, -input.Move.x), rotationSpeed * Time.deltaTime * 100);
         }
     }
 }

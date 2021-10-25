@@ -438,6 +438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1348409152, guid: 14c9b12407326524f855876ada0e709b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3810669669355650121, guid: 14c9b12407326524f855876ada0e709b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -604,6 +608,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 67134933, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 67134933, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: ufoSpawner
       value: 
