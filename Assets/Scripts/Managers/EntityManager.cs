@@ -19,24 +19,13 @@ namespace Project.Managers
         [SerializeField]
         private SceneInfoSO sceneInfo;
         [SerializeField]
-        private Spawner bigAsteroidSpawner;
-        [SerializeField]
-        private Spawner mediumAsteroidSpawner;
-        [SerializeField]
-        private Spawner smallAsteroidSpawner;
-        [SerializeField]
-        private Spawner playerSpawner;
-        [SerializeField]
-        private Spawner ufoSpawner;
-
         private Spawner[] spawners;
+
         private int aliveSpaceObjects;
         private int asteroidsOnLastRoundStart;
 
         private void Awake()
         {
-            spawners = new[] { bigAsteroidSpawner, mediumAsteroidSpawner, smallAsteroidSpawner, playerSpawner, ufoSpawner };
-
             void f(object sender, SpawnArgs args)
             {
                 aliveSpaceObjects++;
@@ -77,7 +66,7 @@ namespace Project.Managers
         {
             scorer.AddLife(-1);
             if (scorer.Lives > 0)
-                playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
+                GetSpawner(sceneInfo.playerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
         }
 
         private void DeathSpawnAsteroids(DestroyableObject asteroid, DeathArgs args)
@@ -91,13 +80,13 @@ namespace Project.Managers
             switch (split.AsteroidToSpawn)
             {
                 case AsteroidType.Big:
-                    spawner = bigAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.bigAsteroidSpawnerName);
                     break;
                 case AsteroidType.Medium:
-                    spawner = mediumAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.mediumAsteroidSpawnerName);
                     break;
                 case AsteroidType.Small:
-                    spawner = smallAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.smallAsteroidSpawnername);
                     break;
                 default:
                     Debug.LogError("Unknown asteroid type");
@@ -115,7 +104,7 @@ namespace Project.Managers
             foreach (var spawner in spawners)
                 spawner.KillAll();
 
-            playerSpawner.Spawn(Vector3.zero, Quaternion.identity);
+            GetSpawner(sceneInfo.playerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
             SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
         }
 
@@ -125,13 +114,13 @@ namespace Project.Managers
             switch (asteroid)
             {
                 case AsteroidType.Big:
-                    spawner = bigAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.bigAsteroidSpawnerName);
                     break;
                 case AsteroidType.Medium:
-                    spawner = mediumAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.mediumAsteroidSpawnerName);
                     break;
                 case AsteroidType.Small:
-                    spawner = smallAsteroidSpawner;
+                    spawner = GetSpawner(sceneInfo.smallAsteroidSpawnername);
                     break;
                 default:
                     Debug.LogError("Unknown asteroid type");
@@ -143,6 +132,18 @@ namespace Project.Managers
                 (Vector3, Quaternion) pos = RandomOffCameraPosition();
                 spawner?.Spawn(pos.Item1, pos.Item2);
             }
+        }
+
+        private Spawner GetSpawner(string name)
+        {
+            foreach (var spawner in spawners)
+            {
+                if (spawner.name == name)
+                    return spawner;
+            }
+
+            Debug.LogWarning($"Can't find spawner of name {name} on {gameObject.name}");
+            return null;
         }
 
         private (Vector3, Quaternion) RandomOffCameraPosition()

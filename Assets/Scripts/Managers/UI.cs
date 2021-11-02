@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+using Project.Core.Conf.SO;
 using Project.Input;
 
 namespace Project.Managers
@@ -14,18 +15,11 @@ namespace Project.Managers
         [SerializeField]
         private Scorer scorer;
         [SerializeField]
+        private SceneInfoSO sceneInfo;
+        [SerializeField]
         private PlayerInputs input;
         [SerializeField]
-        [Space(8)]
         private PlayerInput unityPlayerInput;
-        [SerializeField]
-        private string keybordControlSchemeName;
-        [SerializeField]
-        private string keybordAndMouseControlSchemeName;
-        [SerializeField]
-        private string gameplayActionMapName;
-        [SerializeField]
-        private string uiActionMapName;
         [Space(8)]
         [SerializeField]
         private GameObject menu;
@@ -51,7 +45,7 @@ namespace Project.Managers
 
             input.Menu += () =>
             {
-                SwitchActionMap(uiActionMapName);
+                SwitchActionMap(sceneInfo.uiActionMapName);
                 menu.SetActive(true);
                 gameFlow.GamePause();
             };
@@ -62,13 +56,13 @@ namespace Project.Managers
             continueButton.interactable = false;
             menu.SetActive(true);
 
-            SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
+            SwitchControlScheme(keyboardAndMouse, sceneInfo.keybordAndMouseControlSchemeName);
         }
 
         public void Continue()
         {
             menu.SetActive(false);
-            SwitchActionMap(gameplayActionMapName);
+            SwitchActionMap(sceneInfo.gameplayActionMapName);
 
             gameFlow.GameContinue();
         }
@@ -76,7 +70,7 @@ namespace Project.Managers
         public void NewGame()
         {
             menu.SetActive(false);
-            SwitchActionMap(gameplayActionMapName);
+            SwitchActionMap(sceneInfo.gameplayActionMapName);
 
             continueButton.interactable = true;
             gameFlow.GameStart();
@@ -85,9 +79,9 @@ namespace Project.Managers
         public void SwitchControls()
         {
             if (controllsToggle.GetComponentInChildren<Text>().text == keyboard)
-                SwitchControlScheme(keyboardAndMouse, keybordAndMouseControlSchemeName);
+                SwitchControlScheme(keyboardAndMouse, sceneInfo.keybordAndMouseControlSchemeName);
             else
-                SwitchControlScheme(keyboard, keybordControlSchemeName);
+                SwitchControlScheme(keyboard, sceneInfo.keybordControlSchemeName);
         }
 
         private void SwitchActionMap(string actionMapName)

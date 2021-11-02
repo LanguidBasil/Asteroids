@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 3810669669882601965}
+    - target: {fileID: 5059967647015767032, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
+      propertyPath: sceneInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8f880c0e8cbeef48806be5130ba59ba, type: 3}
 --- !u!1001 &6588074735067693331
@@ -599,6 +603,10 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1738850743}
+    - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: sceneInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d6d903c46225784e92c367dfd1e58f5, type: 2}
     - target: {fileID: 2063900237, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: livesNumber
       value: 
@@ -684,6 +692,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1443145699}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: smallAsteroidSpawner
       value: 
       objectReference: {fileID: 251773995}
@@ -691,6 +703,26 @@ PrefabInstance:
       propertyPath: mediumAsteroidSpawner
       value: 
       objectReference: {fileID: 376305817}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 1443145699}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 376305817}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[2]
+      value: 
+      objectReference: {fileID: 251773995}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[3]
+      value: 
+      objectReference: {fileID: 3810669669882601965}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[4]
+      value: 
+      objectReference: {fileID: 1776695024}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
 --- !u!1001 &8711995497663576589

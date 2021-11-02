@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using Project.Core.Conf.SO;
 using Project.Core.Objects;
 using Project.Core.Spawners;
 using Project.Tools;
@@ -20,11 +21,9 @@ namespace Project.Input
         [SerializeField]
         private Spawner spawner;
         [SerializeField]
+        private SceneInfoSO sceneInfo;
+        [SerializeField]
         private PlayerInput unityPlayerInput;
-        [SerializeField]
-        private string keyboardControlSchemeName;
-        [SerializeField]
-        private string keyboardAndMouseControlSchemeName;
 
         protected SpaceShip user;
         protected Vector2 lookPoint;
@@ -82,11 +81,11 @@ namespace Project.Input
 
         public void RethinkControlScheme(string newControlScheme)
         {
-            if (newControlScheme == keyboardAndMouseControlSchemeName)
+            if (newControlScheme == sceneInfo.keybordAndMouseControlSchemeName)
             {
                 lookWithMouse = true;
             }
-            else if (newControlScheme == keyboardControlSchemeName)
+            else if (newControlScheme == sceneInfo.keybordControlSchemeName)
             {
                 lookWithMouse = false;
             }
