@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraBoundsGameObjectName: Camera Bounds
   CameraBoundsExtents: {x: 17.75, y: 10}
+  bigAsteroidSpawnerName: Big Asteroids
+  mediumAsteroidSpawnerName: Medium Asteroids
+  smallAsteroidSpawnername: Small Asteroids
+  playerSpawnerName: Players
+  ufoSpawnerName: UFO

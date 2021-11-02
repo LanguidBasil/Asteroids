@@ -684,6 +684,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1443145699}
     - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
       propertyPath: smallAsteroidSpawner
       value: 
       objectReference: {fileID: 251773995}
@@ -691,6 +695,26 @@ PrefabInstance:
       propertyPath: mediumAsteroidSpawner
       value: 
       objectReference: {fileID: 376305817}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 1443145699}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 376305817}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[2]
+      value: 
+      objectReference: {fileID: 251773995}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[3]
+      value: 
+      objectReference: {fileID: 3810669669882601965}
+    - target: {fileID: 6588074736633478580, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
+      propertyPath: spawners.Array.data[4]
+      value: 
+      objectReference: {fileID: 1776695024}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aff8e65fa1af7d42b978a3063308595, type: 3}
 --- !u!1001 &8711995497663576589
