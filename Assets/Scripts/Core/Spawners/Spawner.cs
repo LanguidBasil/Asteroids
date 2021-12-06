@@ -32,18 +32,19 @@ namespace Project.Core.Spawners
         /// </returns>
         public virtual bool Spawn(Vector3 position, Quaternion rotation)
         {
-            GameObject gameObj = pool.Get();
+            var gameObj = pool.Get();
             if (gameObj != null)
             {
                 if (input != null)
                     gameObj.GetComponent<SpaceShip>()?.SetInput(input);
-                gameObj.transform.SetPositionAndRotation(position, rotation);
 
+                gameObj.transform.SetPositionAndRotation(position, rotation);
                 gameObj.SetActive(true);
                 OnSpawn?.Invoke(this, new SpawnArgs(gameObj, position, rotation));
 
                 if (audioOnSpawn != null)
                     audioOnSpawn.Play();
+
                 return true;
             }
 
@@ -51,9 +52,6 @@ namespace Project.Core.Spawners
             return false;
         }
 
-        /// <summary>
-        /// Disables all spawned objects
-        /// </summary>
         public virtual void KillAll()
         {
             pool.DisableAll();

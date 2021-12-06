@@ -81,11 +81,11 @@ namespace Project.Input
 
         public void RethinkControlScheme(string newControlScheme)
         {
-            if (newControlScheme == sceneInfo.keybordAndMouseControlSchemeName)
+            if (newControlScheme == sceneInfo.KeybordAndMouseControlSchemeName)
             {
                 lookWithMouse = true;
             }
-            else if (newControlScheme == sceneInfo.keybordControlSchemeName)
+            else if (newControlScheme == sceneInfo.KeybordControlSchemeName)
             {
                 lookWithMouse = false;
             }
