@@ -10,8 +10,6 @@ namespace Project.Managers
     public class EntityManager : MonoBehaviour
     {
         [SerializeField]
-        private string playerName;
-        [SerializeField]
         private Scorer scorer;
         [SerializeField]
         private AudioSource audioSource;
@@ -22,7 +20,7 @@ namespace Project.Managers
         private Spawner[] spawners;
 
         private int aliveSpaceObjects;
-        private int asteroidsOnLastRoundStart;
+        private int asteroidsOnLastRound;
 
         private void Awake()
         {
@@ -51,14 +49,14 @@ namespace Project.Managers
                 audioSource.Play();
             }
 
-            if (args.Sender.name == playerName)
+            if (args.Sender.name == sceneInfo.PlayerName)
                 DeathSpawnPlayer(args.Sender.GetComponent<SpaceShip>(), args);
             DeathSpawnAsteroids(args.Sender.GetComponent<DestroyableObject>(), args);
 
             if (aliveSpaceObjects == 1)
             {
-                asteroidsOnLastRoundStart++;
-                SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
+                asteroidsOnLastRound++;
+                SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRound);
             }
         }
 
@@ -66,7 +64,7 @@ namespace Project.Managers
         {
             scorer.AddLife(-1);
             if (scorer.Lives > 0)
-                GetSpawner(sceneInfo.playerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
+                GetSpawner(sceneInfo.PlayerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
         }
 
         private void DeathSpawnAsteroids(DestroyableObject asteroid, DeathArgs args)
@@ -80,13 +78,13 @@ namespace Project.Managers
             switch (split.AsteroidToSpawn)
             {
                 case AsteroidType.Big:
-                    spawner = GetSpawner(sceneInfo.bigAsteroidSpawnerName);
+                    spawner = GetSpawner(sceneInfo.BigAsteroidSpawnerName);
                     break;
                 case AsteroidType.Medium:
-                    spawner = GetSpawner(sceneInfo.mediumAsteroidSpawnerName);
+                    spawner = GetSpawner(sceneInfo.MediumAsteroidSpawnerName);
                     break;
                 case AsteroidType.Small:
-                    spawner = GetSpawner(sceneInfo.smallAsteroidSpawnername);
+                    spawner = GetSpawner(sceneInfo.SmallAsteroidSpawnerName);
                     break;
                 default:
                     Debug.LogError("Unknown asteroid type");
@@ -99,13 +97,13 @@ namespace Project.Managers
 
         public void GameInit(int bigAsteroidNumber)
         {
-            asteroidsOnLastRoundStart = bigAsteroidNumber;
+            asteroidsOnLastRound = bigAsteroidNumber;
 
             foreach (var spawner in spawners)
                 spawner.KillAll();
 
-            GetSpawner(sceneInfo.playerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
-            SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRoundStart);
+            GetSpawner(sceneInfo.PlayerSpawnerName).Spawn(Vector3.zero, Quaternion.identity);
+            SpawnAsteroidOffCamera(AsteroidType.Big, asteroidsOnLastRound);
         }
 
         private void SpawnAsteroidOffCamera(AsteroidType asteroid, int number)
@@ -114,13 +112,13 @@ namespace Project.Managers
             switch (asteroid)
             {
                 case AsteroidType.Big:
-                    spawner = GetSpawner(sceneInfo.bigAsteroidSpawnerName);
+                    spawner = GetSpawner(sceneInfo.BigAsteroidSpawnerName);
                     break;
                 case AsteroidType.Medium:
-                    spawner = GetSpawner(sceneInfo.mediumAsteroidSpawnerName);
+                    spawner = GetSpawner(sceneInfo.MediumAsteroidSpawnerName);
                     break;
                 case AsteroidType.Small:
-                    spawner = GetSpawner(sceneInfo.smallAsteroidSpawnername);
+                    spawner = GetSpawner(sceneInfo.SmallAsteroidSpawnerName);
                     break;
                 default:
                     Debug.LogError("Unknown asteroid type");

@@ -45,7 +45,7 @@ namespace Project.Managers
 
             input.Menu += () =>
             {
-                SwitchActionMap(sceneInfo.uiActionMapName);
+                SwitchActionMap(sceneInfo.UIActionMapName);
                 menu.SetActive(true);
                 gameFlow.GamePause();
             };
@@ -56,13 +56,13 @@ namespace Project.Managers
             continueButton.interactable = false;
             menu.SetActive(true);
 
-            SwitchControlScheme(keyboardAndMouse, sceneInfo.keybordAndMouseControlSchemeName);
+            SwitchControlScheme(keyboardAndMouse, sceneInfo.KeybordAndMouseControlSchemeName);
         }
 
         public void Continue()
         {
             menu.SetActive(false);
-            SwitchActionMap(sceneInfo.gameplayActionMapName);
+            SwitchActionMap(sceneInfo.GameplayActionMapName);
 
             gameFlow.GameContinue();
         }
@@ -70,7 +70,7 @@ namespace Project.Managers
         public void NewGame()
         {
             menu.SetActive(false);
-            SwitchActionMap(sceneInfo.gameplayActionMapName);
+            SwitchActionMap(sceneInfo.GameplayActionMapName);
 
             continueButton.interactable = true;
             gameFlow.GameStart();
@@ -79,9 +79,9 @@ namespace Project.Managers
         public void SwitchControls()
         {
             if (controllsToggle.GetComponentInChildren<Text>().text == keyboard)
-                SwitchControlScheme(keyboardAndMouse, sceneInfo.keybordAndMouseControlSchemeName);
+                SwitchControlScheme(keyboardAndMouse, sceneInfo.KeybordAndMouseControlSchemeName);
             else
-                SwitchControlScheme(keyboard, sceneInfo.keybordControlSchemeName);
+                SwitchControlScheme(keyboard, sceneInfo.KeybordControlSchemeName);
         }
 
         private void SwitchActionMap(string actionMapName)

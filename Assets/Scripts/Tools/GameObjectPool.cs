@@ -4,21 +4,19 @@ namespace Project.Tools
 {
     public class GameObjectPool
     {
-        private readonly int maxSize;
         private readonly GameObject[] pool;
 
         public GameObjectPool(int maxSize, GameObject prototype)
         {
-            this.maxSize = maxSize;
-            this.pool = new GameObject[maxSize];
+            pool = new GameObject[maxSize];
 
-            for (int i = 0; i < maxSize; i++)
+            for (int i = 0; i < pool.Length; i++)
                 pool[i] = Object.Instantiate(prototype);
         }
 
         public GameObject Get()
         {
-            for (int i = 0; i < maxSize; i++)
+            for (int i = 0; i < pool.Length; i++)
                 if (!pool[i].activeInHierarchy)
                     return pool[i];
 
@@ -27,7 +25,7 @@ namespace Project.Tools
 
         public void DisableAll()
         {
-            for (int i = 0; i < maxSize; i++)
+            for (int i = 0; i < pool.Length; i++)
                 pool[i].SetActive(false);
         }
     }

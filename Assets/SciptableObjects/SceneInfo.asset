@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d16afa97d09254c8d23896dddaad66, type: 3}
   m_Name: SceneInfo
   m_EditorClassIdentifier: 
-  keybordControlSchemeName: Keyboard
-  keybordAndMouseControlSchemeName: Keyboard&Mouse
-  gameplayActionMapName: Gameplay
-  uiActionMapName: UI
+  PlayerName: Player Ship(Clone)
+  KeybordControlSchemeName: Keyboard
+  KeybordAndMouseControlSchemeName: Keyboard&Mouse
+  GameplayActionMapName: Gameplay
+  UIActionMapName: UI
   CameraBoundsGameObjectName: Camera Bounds
   CameraBoundsExtents: {x: 17.75, y: 10}
-  bigAsteroidSpawnerName: Big Asteroids
-  mediumAsteroidSpawnerName: Medium Asteroids
-  smallAsteroidSpawnername: Small Asteroids
-  playerSpawnerName: Players
-  ufoSpawnerName: UFO
+  BigAsteroidSpawnerName: Big Asteroids
+  MediumAsteroidSpawnerName: Medium Asteroids
+  SmallAsteroidSpawnerName: Small Asteroids
+  PlayerSpawnerName: Players
+  UFOSpawnerName: UFO
