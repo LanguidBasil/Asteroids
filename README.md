@@ -1,6 +1,4 @@
 # Megame-Asteroids
-Первая часть тестового задания для аппликации в Megame. Воссоздание аркадной игры Asteroids с Atari 
+Recreating classic arcade game "Asteroids" in unity. Visuals and overall image are not too exciting, this project was primarily an architectural challenge.
 
-[Видео](https://youtu.be/G6NZubwpYY8) на ютуб  
-[Билд](https://drive.google.com/drive/folders/15gTftaY0TV4Lb4eje07d7Fj0zcRwjVO_?usp=sharing) на google drive  
-Почта для связи - e.makunev@gmail.com
+![Screenshot (245)](https://user-images.githubusercontent.com/72715882/144814314-ccc127b4-2b63-494d-ab10-ad459969076c.png)
